@@ -1,0 +1,99 @@
+\section{Estensioni Intere}
+
+\begin{definition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli, $I\ideal A\comma b\in B$. $b$ si dice intero su $I$ se esistono $a_1,\ldots,a_n\in I$ tali che
+$$
+b^n+a_1b^{n-1}+\ldots+a_{n-1}r+a_n=0.
+$$
+\end{definition}
+\begin{definition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli.
+\begin{itemize}
+\item $f$ si dice estensione finita se $B$ è finitamente generato come $A$-modulo.
+\item $f$ si dice estensione intera se ogni elemento di $B$ è intero su $A$.
+\end{itemize}
+\end{definition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Allora sono equivalenti:
+\begin{enumerate}
+\item $b$ è intero su $A$;
+\item $A[b]$ è un $A$-modulo finitamente generato;
+\item esiste un anello $C$ tale che $A[b]\subs C\subs B$ e $C$ è finitamente generato come $A$-modulo.
+\item Esiste un $A[b]$-modulo fedele finitamente generato come $A$-modulo.
+\end{enumerate}
+\end{proposition}
+\begin{corollary}
+Ogni estensione finita è intera.
+\end{corollary}
+\begin{corollary}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Se $b_1,\ldots,b_n\in B$ sono interi su $A$, allora $A[b_1,\ldots,b_n]$ è un $A$-modulo finitamente generato.
+\end{corollary}
+\begin{proposition}
+Siano $A\xrightarrow{f}B\xrightarrow{g}C$ omomorfismi di anelli.
+\begin{itemize}
+\item Se $f$ e $g$ sono finite, allora anche $g\circ f$ è finita.
+\item se $f$ e $g$ sono intere, allora anche $g\circ f$ è intera.
+\end{itemize}
+\end{proposition}
+\begin{definition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli, $I\ideal A$. Si dice chiusura integrale di $I$ l'insieme
+$$
+\clos{I}^B=\{b\in B:\text{$b$ è intero su $I$}\}.
+$$
+\end{definition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un'estensione intera, $I\ideal A$. Allora $\clos{I}=\rad{I^e}$.
+\end{proposition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli, $I\ideal A$. Allora $\clos{I}$ è un sottoanello di $B$.
+\end{proposition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli, $S\subs A$ una parte moltiplicativa. Allora
+$$
+\clos{S^{-1}A}^{S^{-1}B}=S^{-1}\clos{A}^B
+$$
+\end{proposition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un'estensione intera.
+\begin{itemize}
+\item Se $S\subs A$ è una parte moltiplicativa, allora $\map{f_*}{S^{-1}A}{S^{-1}B}$ è intera.
+\item Se $J\ideal B$, allora $\injmap{f_*}{A/J^c}{B/J}$ è intera.
+\end{itemize}
+\end{proposition}
+\begin{definition}
+Sia $A$ un dominio, $K\sups A$ il suo campo dei quozienti. $A$ si dice normale se $\clos{A}^K=A$.
+\end{definition}
+\begin{proposition}
+Sia $A$ un dominio, $K\sups A$ il suo campo dei quozienti. Allora $\clos{A}^K$ è normale.
+\end{proposition}
+\begin{proposition}
+Sia $A$ un dominio a fattorizzazione unica. Allora $A$ è normale.
+\end{proposition}
+\begin{proposition}
+Sia $A$ un dominio normale, $K\sups A$ il suo campo dei quozienti, $L\sups K$ un'estensione algebrica, $I\ideal A\comma x\in L\comma\mu_x\in K[t]$ il polinomio minimo di $x$ su $K$. Allora $x\in\clos{I}$ se e solo se $\mu_x\in\rad{I}[t]$.
+\end{proposition}
+\begin{proposition}
+Sia $B$ un dominio, $A\subs B$ un'estensione intera. Allora $A$ è un campo se e solo se $B$ è un campo.
+\end{proposition}
+\begin{corollary}
+Sia $\map{f}{A}{B}$ un'estensione intera, $\qq\in\Spec{B}$. Allora $\qq\in\Max B$ se e solo se $f^*(\qq)\in\Max A$.
+\end{corollary}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un'estensione intera, $\qq_1,\qq_2\in\Spec B$ con $\qq_1\subs\qq_2$ e $f^*(\qq_1)=f^*(\qq_2)$. Allora $\qq_1=\qq_2$.
+\end{proposition}
+\begin{proposition}
+Sia $A\subs B$ un'estensione intera. Allora l'inclusione soddisfa il \emph{lying over}.
+\end{proposition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un'estensione intera. Allora $\map{f^*}{\Spec B}{\Spec A}$ è chiusa, e $f$ soddisfa il \emph{going-up}.
+\end{proposition}
+\begin{proposition}
+Sia $A$ un dominio normale, $B\sups A$ un dominio. Supponiamo che l'inclusione $\injmap{i}{A}{B}$ sia un'estensione intera. Allora $\map{i^*}{\Spec B}{\Spec A}$ è aperta, e $i$ soddisfa il \emph{going-down}
+\end{proposition}
+
+
+
+
+
+
+

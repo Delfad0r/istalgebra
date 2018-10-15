@@ -1,0 +1,72 @@
+\section{Topologia di Zariski}
+\begin{definition}
+Sia $A$ un anello. La topologia di Zariski è la topologia su $\Spec A$ i cui chiusi sono
+$$
+\VV(I)=\{\pp\in\Spec A:\pp\sups I\}
+$$
+al variare di $I\ideal A$.
+\end{definition}
+\begin{proposition}
+Sia $A$ un anello. Una base della topologia di Zariski è
+$$
+\{(\Spec A)_a:a\in A\}.
+$$
+\end{proposition}
+\begin{definition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Si definisce l'applicazione $\map{f^*}{\Spec B}{\Spec A}$ tale che $f^*(\qq)=f^{-1}(\qq)$.
+\end{definition}
+\begin{proposition}
+\leavevmode
+\begin{itemize}
+\item $\map{f^*}{\Spec B}{\Spec A}$ è continua.
+\item $(f\circ g)^*=g^*\circ f^*$.
+\item $(\1_A)^*=1_{\Spec A}$
+\end{itemize}
+\end{proposition}
+\begin{corollary}
+Esiste un funtore controvariante
+\functor{\cat{Ring}}{\cat{Top}}{A}{\Spec A}{f}{f^*}
+\end{corollary}
+\begin{definition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Si dice che $f$ soddisfa il \emph{lying over} se $\map{f^*}{\Spec B}{\Spec A}$ è suriettiva.
+\end{definition}
+\begin{definition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Si dice che $f$ soddisfa il \emph{going-up} se per ogni $\pp_1\comma\pp_2\in\Spec A\comma\qq_1\in\Spec B$ tali che $\pp_1\subs\pp_2$ e $\pp_1=f^*(\qq_1)$ esiste $\qq_2\in\Spec B$ tale che $\qq_1\subs\qq_2$ e $\pp_2=f^*(\qq_2)$.
+$$
+\begin{diagram}
+\pp_1\arrow[r,symbol=\subs]&\pp_2\arrow[r,symbol=\subs]&A\arrow[d,"f"]\\
+\qq_1\arrow[r,symbol=\subs]\arrow[u,mapsto,"f^*"]&\exists\qq_2\arrow[r,symbol=\subs]\arrow[u,mapsto,"f^*"]&B
+\end{diagram}
+$$
+\end{definition}
+\begin{definition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Si dice che $f$ soddisfa il \emph{going-down} se per ogni $\pp_1\comma\pp_2\in\Spec A\comma\qq_2\in\Spec B$ tali che $\pp_1\subs\pp_2$ e $\pp_2=f^*(\qq_2)$ esiste $\qq_1\in\Spec B$ tale che $\qq_1\subs\qq_2$ e $\pp_1=f^*(\qq_1)$.
+$$
+\begin{diagram}
+\pp_1\arrow[r,symbol=\subs]&\pp_2\arrow[r,symbol=\subs]&A\arrow[d,"f"]\\
+\exists\qq_1\arrow[r,symbol=\subs]\arrow[u,mapsto,"f^*"]&\qq_2\arrow[r,symbol=\subs]\arrow[u,mapsto,"f^*"]&B
+\end{diagram}
+$$
+\end{definition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Se $\map{f^*}{\Spec A}{\Spec B}$ è chiusa, allora $f$ soddisfa il \emph{going-up}.
+\end{proposition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli, $Y=\Spec B\comma\qq\in Y$.
+\begin{itemize}
+\item $Y_\qq=\bigcap_{a\not\in\qq}Y_a$
+\item $f^*(Y_\qq)=\bigcap_{a\not\in\qq}f^*(Y_a)$
+\end{itemize}
+\end{proposition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ un omomorfismo di anelli. Se $\map{f^*}{\Spec A}{\Spec B}$ è aperta, allora $f$ soddisfa il \emph{going-down}.
+\end{proposition}
+\begin{proposition}
+Sia $\map{f}{A}{B}$ piatta. Allora $\map{f^*}{\Spec B}{\Spec A}$ è aperta, e $f$ soddisfa il \emph{going-down}.
+\end{proposition}
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+\section{Dimensione}
+\begin{definition}
+Sia $A$ un anello. Si chiama dimensione di $A$ l'intero (eventualmente $+\infty$)
+$$
+\dim A=\sup\{n\in\NN:\text{esistono $\pp_0\,\ldots\pp_n\in\Spec A$ con $\pp_0\subsn\ldots\subsn\pp_n$}\}.
+$$
+\end{definition}
+\begin{proposition}
+Sia $A\subs B$ un'estensione intera. Allora $\dim A=\dim B$.
+\end{proposition}
+\begin{proposition}
+Sia $A=\KK[y_1,\ldots,y_n]$ una $\KK$-algebra finitamente generata. Allora esistono $x_1,\ldots,x_m\in A$ algebricamente indipendenti con $m\le n$ tali che l'estensione $\KK[x_1,\ldots,x_m]\subs A$ è finita. Inoltre se $y_1,\ldots,y_n$ sono algebricamente dipendenti si può scegliere $m<n$.
+\end{proposition}
+\begin{proposition}
+Sia $A=\KK[x_1,\ldots,x_n]$ anello di polinomi, $f\in A\setminus\{0\}$. Allora
+$$
+\dim A=\dim A_f=n.
+$$
+\end{proposition}
+\begin{corollary}
+Ogni $\KK$-algebra finitamente generata ha dimensione finita.
+\end{corollary}
+\begin{definition}
+Sia $A$ un dominio e una $\KK$-algebra. Si dice base di trascendenza di $A$ su $\KK$ un insieme massimale di elementi di $A$ algebricamente indipendenti su $\KK$.
+\end{definition}
+\begin{definition}
+Sia $A$ un dominio e una $\KK$-algebra. Si chiama grado di trascendenza di $A$ il cardinale
+$$
+\trdeg A=\min\{\#\mathcal{B}:\text{$\mathcal{B}$ è una base di trascendenza di $A$ su $\KK$}\}.
+$$
+\end{definition}
+\begin{proposition}
+Sia $\KK\subs K$ un'estensione di campi, con $\trdeg K$ finito. Allora ogni base di trascendenza di $K$ su $\KK$ ha cardinalità $\trdeg K$.
+\end{proposition}
+\begin{corollary}
+Sia $A$ una $\KK$-algebra finitamente generata e un dominio, e sia $K$ il suo campo dei quozienti. Allora $\dim A=\trdeg K$.
+\end{corollary}
+
+
+
