@@ -3,14 +3,18 @@ language: generic
 services: docker
 script:
 - docker pull dxjoke/tectonic-docker
-- docker run --mount src=$TRAVIS_BUILD_DIR/enunciati,target=/usr/src/tex,type=bind
-  dxjoke/tectonic-docker /bin/sh -c "tectonic main.tex"
+- docker run --mount src=$TRAVIS_BUILD_DIR/enunciati,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic main.tex"
+- mv enunciati/main.pdf enunciati/enunciati.pdf
+before_deploy:
+  - git config --local user.name "Delfad0r"
+  - git config --local user.email "filippo.gianni.baroni@gmail.com"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   provider: releases
   api_key:
     secure: GQbNDM6hanbPBSKUdidehi9OOB5SBqJUmdZXuotwU0r15jcqhCJNnbAnGPxugsstcFNuOvH0XbkHGA/+rWBzAhfLLx9O4d6xxwe2oOaKXkNvCn4ZbgrGk5IoA3gPGqzd6wEi+d2duaQAr4+zS0YF5qYek9GbXLCcSeBttnn4iE4KIpaPVslzWEyNlp+JPkVzdt2au623/07R2H1axePKIyhVF4ZFbHGs7gv1Gn1t/cIJAlWPTzY25CZfnnq8GGXdxt1//SpBDxboXAvyGmHt9HIymY6b7HJV9jgfZroz1lOLPpUDko6vTI+cJzA8b/FPQHpAZvS+/X0ltqnPhxCR3lPVX2hlFD0wYpKNwXgzJAoKjqJdsUkK7hh/IwXq+0Ghc3mlqSHPJxlMyX+yTNyl6ckZLmQlWVqOB0wIgFh06YfTv7KpUE0Al26flH9duv3xSVpT1lhTjr0ATYK3MGgn6HlTUPATwTc+BVmfVIGHfHhhLZTYX1aI7wLp1j7gI5eOnpKfeeV8N0V0N5vCAGrgNqglESllrCOO2BNojb+09HchTt7SrqpmI0yxxuqzPsjtWOr62utygTaDGMIgWvkErFpttZwLU/oXYEVJGCPw0YSehZCxcD+hmAS6BYcAH7XqJ4wCTm1iWgnC87SG8d/dXtTB2oNJZf2PX/dMZzF6ozY=
   file: 
-  - ./enunciati/main.pdf
+  - ./enunciati/enunciati.pdf
   skip_cleanup: true
   on:
-    branch: master
+    tags: true
