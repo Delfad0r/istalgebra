@@ -8,7 +8,7 @@ script:
 before_deploy:
   - git config --local user.name "Delfad0r"
   - git config --local user.email "filippo.gianni.baroni@gmail.com"
-  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  - git tag "$(date +'%Y-%m-%d-%H-%M-%S')"
 deploy:
   provider: releases
   api_key:
