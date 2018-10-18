@@ -1,0 +1,44 @@
+\section{Teoria di Galois}
+\begin{setting}
+Sia $A$ un dominio normale, $K$ il suo campo dei quozienti, $L\sups K$ un'estensione di Galois finita, $B=\clos{A}^L\comma X=\Spec A\comma Y=\Spec B\comma\map{\varphi}{Y}{X}$ la mappa indotta dall'inclusione $A\subs B$, $\qq\in Y\comma\pp=\varphi(\qq)$.
+$$
+\begin{diagram}
+\pp\arrow[r,symbol=\subs]&A\arrow[r,symbol=\subs]\arrow[d,symbol=\subs]&K\arrow[d,symbol=\subs]\\
+\qq\arrow[r,symbol=\subs]\arrow[u,mapsto,"\varphi"]&B\arrow[r,symbol=\subs]&L
+\end{diagram}
+$$
+Sia $G=\Gal(L/K)\comma Y_\pp=\varphi^{-1}(\pp)$. Siano $k(\pp)\comma k(\qq)$ i campi dei quozienti, rispettivamente, di $A/\pp\comma B/\qq$.
+\end{setting}
+\begin{lemma}
+\leavevmode
+\begin{itemize}
+\item Se $\sigma\in G$, allora $\sigma B=B$.
+\item Se $\sigma\in G$, allora $\sigma\qq\in Y_\pp$.
+\item L'azione di $G$ su $Y_\pp$ è transitiva.
+\end{itemize}
+\end{lemma}
+\begin{definition}
+Si dice gruppo di decomposizione di $\qq$ il gruppo
+$$
+G_\qq=\{\sigma\in G:\sigma\qq=\qq\}.
+$$
+\end{definition}
+\begin{lemma}
+Sia $L^\qq=L^{G_\qq}\comma B^\qq=B\cap L^\qq\comma \qq'=\qq\cap B^\qq\comma k(\qq')$ il campo del quozienti di $B^{\qq}/\qq'$.
+\begin{itemize}
+\item $L^\qq$ è il minimo campo $E$ tale che $K\subs E\subs L$ e $\qq$ è l'unico primo di $B$ sopra $\qq\cap E\in\Spec(B\cap E)$.
+\item L'inclusione naturale $k(\pp)\hookrightarrow k(\qq')$ è un isomorfismo.
+\end{itemize}
+\end{lemma}
+\begin{proposition}
+L'estensione $k(\pp)\hookrightarrow k(\qq)$ è normale e finita.
+\end{proposition}
+\begin{proposition}
+Sia $\map{\pi}{G_\qq}{\Gal(k(\qq)/k(\pp))}$ la mappa derivante dall'azione di $G_\qq$ su $B/\qq$ (e dunque su $k(\qq)$). Allora $\pi$ è suriettiva.
+\end{proposition}
+\begin{corollary}
+Se $L=K[\alpha]$ e $\alpha$ è separabile su $k(\pp)$, allora $\pi$ è un isomorfismo.
+\end{corollary}
+
+
+

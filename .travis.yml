@@ -16,5 +16,3 @@ deploy:
   file: 
   - ./enunciati/enunciati.pdf
   skip_cleanup: true
-  on:
-    tags: true
