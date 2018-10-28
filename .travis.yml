@@ -3,7 +3,7 @@ language: generic
 services: docker
 script:
 - docker pull dxjoke/tectonic-docker
-- for d in $TRAVIS_BUILD_DIR; do if [ -d $d ]; then cp mystyle.sty $d/mystyle.sty; docker run --mount src=$TRAVIS_BUILD_DIR/$d,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic main.tex"; mv $d/main.pdf $d.pdf; fi; done
+- for d in *; do if [ -d $d ]; then cp mystyle.sty $d/mystyle.sty; docker run --mount src=$TRAVIS_BUILD_DIR/$d,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic main.tex"; mv $d/main.pdf $d.pdf; fi; done
 before_deploy:
   - git config --local user.name "Delfad0r"
   - git config --local user.email "filippo.gianni.baroni@gmail.com"
