@@ -1,6 +1,9 @@
 ## PDF
 *.pdf
 
+## mystyle
+*/mystyle.sty
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
