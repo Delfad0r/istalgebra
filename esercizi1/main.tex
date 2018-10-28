@@ -1,0 +1,204 @@
+\documentclass[a4paper]{article}
+
+\usepackage{mystyle}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\today}
+\chead{\textbf{Esercizi I}}
+\rhead{Filippo Gianni Baroni}
+
+\begin{document}
+\subsection*{Esercizio 2.6}
+Sia $M$ un $A$-modulo piatto e sia
+\begin{equation}
+\label{2-6-eq-1}
+\begin{diagram}
+0\rar&X\rar&Y\rar&M\rar&0
+\end{diagram}
+\end{equation}
+una successione esatta. Si dimostri che per ogni $A$-modulo $N$ la successione
+$$
+\begin{diagram}
+0\rar&N\tensor X\rar&N\tensor Y\rar&N\tensor M\rar&0
+\end{diagram}
+$$
+è esatta.
+\begin{proof}
+Scriviamo $N$ come quoziente di un $A$-modulo libero $F$:
+\begin{equation}
+\label{2-6-eq-2}
+\begin{diagram}
+0\rar&K\rar&F\rar&N\rar&0.
+\end{diagram}
+\end{equation}
+Consideriamo il diagramma commutativo
+$$
+\begin{diagram}
+\phantom{}&&&0\dar\\%\arrow[dddll,dashed,out=0,in=180,looseness=2,overlay]\\
+&K\tensor X\rar\dar&K\tensor Y\rar\dar[""{coordinate,name=c2}]&K\tensor M\rar[""{coordinate,name=c1}]\dar&0\\
+0\rar[""{coordinate,name=c3}]&F\tensor X\rar\dar&F\tensor Y\rar\dar&F\tensor M\rar\dar&0\\
+&N\tensor X\rar\dar&N\tensor Y\rar\dar&N\tensor M\rar\dar&0\\
+&0&0&0
+\ar[from=1-4,to=4-2,rounded corners,dashed,to path={
+-- ([xshift=2ex]\tikztostart.east)
+-| (c1)
+|- (c2)
+-| (c3)
+|- (\tikztotarget)
+}]
+\end{diagram}
+$$
+dove le righe si ottengono tensorizzando la \eqref{2-6-eq-1} e le colonne tensorizzando la \eqref{2-6-eq-2}. La terza colonna è esatta per piattezza di $M$, mentre la seconda riga è esatta poiché $F$ è libero e dunque piatto. Poiché $N\tensor X$ è il conucleo dell'applicazione $K\tensor X\rightarrow F\tensor X$ (e analogamente per $N\tensor Y$ e $N\tensor M$), per il lemma del serpente si ha la successione esatta
+$$
+\begin{diagram}
+0\rar&N\tensor X\rar&N\tensor Y\rar&N\tensor M.
+\end{diagram}
+$$
+\end{proof}
+\begin{comment}
+\newpage
+
+\subsection*{Esercizio 2.9}
+Sia $E$ un campo e sia $A\sups E$ finitamente generato su $E$. Si dimostri che per ogni ideale $I\ideal A$ vale
+$$
+\rad{I}=\bigcap_{\substack{\mm\in\Max A\\\mm\sups I}}\mm.
+$$
+\begin{proof}
+A meno di quozientare per $I$ possiamo ridurci al caso $I=0$. È sufficiente dimostrare l'inclusione $\sups$. Sia $x\not\in\rad{0}$, e sia $S=x^\NN$. Notiamo che $S^{-1}A$ è una $E$-algebra finitamente generata (è generata da $A$ e da $1/x$). Poiché $0\not\in S$, $S^{-1}A\neq 0$, dunque esiste un massimale $\mm\in\Spec S^{-1}A$. Sia $\pp=\mm^c\in\Spec A$. Abbiamo le estensioni
+$$
+E\subs A/\pp\subs (S^{-1}A)/\mm.
+$$
+$(S^{-1}A)/\mm$ è un campo, ed è finitamente generato come $E$-algebra; per il Nullstellensatz è finitamente generato anche come $E$-modulo. Ma allora anche $A/\pp$ è finitamente generato come $E$-modulo, dunque è un campo. Dunque $\pp$ è massimale, ed essendo contrazione di un primo di $S^{-1}A$ non contiene $x$.
+\end{proof}
+\end{comment}
+\newpage
+
+\subsection*{Esercizio 3.4}
+Sia $A$ un anello. Se $x\in A$ poniamo $S_x=x^{\NN}(1+Ax)$ e $A_{\{x\}}=S_x^{-1}A$. Si dimostri che $\dim A\le\ell$ se e solo se per ogni $x\in A$ vale $\dim A_{\{x\}}\le\ell-1$.
+\begin{proof}
+\leavevmode
+\begin{itemize}
+\item[($\Rightarrow$)] Supponiamo $\dim A\le\ell$. Sia $x\in A$, e sia
+$$
+S_x^{-1}\pp_0\subsn S_x^{-1}\pp_1\subsn\ldots\subsn S_x^{-1}\pp_n
+$$
+una catena finita di primi di $A_{\{x\}}$, dove $\pp_i\in\Spec A$ e $\pp_i\cap S_x=\emptyset$. Mostriamo che $n\le\ell-1$. Sia $I=(\pp_n,x)\ideal A$. Se per assurdo fosse $I=(1)$ avremmo $ax+1\in\pp_n$ per un qualche $a\in A$, e dunque $ax+1\in\pp_n\cap S_x$. Pertanto esiste un massimale $\mm\sups I$. Poiché $x\in\mm\setminus\pp_n$, vale $\pp_n\subsn\mm$. Ma allora abbiamo la catena di primi di $A$
+$$
+\pp_0\subsn\pp_1\subsn\ldots\subsn\pp_n\subsn\mm
+$$
+che deve avere lunghezza $\le\ell$, pertanto $n\le\ell-1$. Abbiamo dimostrato che ogni catena finita di primi di $A_{\{x\}}$ ha lunghezza al più $\ell-1$, da cui $\dim A_{\{x\}}\le\ell-1$.
+\item[($\Leftarrow$)] Supponiamo $\dim A_{\{x\}}\le\ell-1$ per ogni $x\in A$. Sia
+$$
+\pp_0\subsn\pp_1\subsn\ldots\subsn\pp_n
+$$
+una catena finita di primi di $A$. Mostriamo che $n\le\ell$. Scegliamo un $x\in\pp_n\setminus\pp_{n-1}$. Supponiamo per assurdo che $S_x\cap\pp_{n-1}\neq\emptyset$. Allora esistono un $m\in\NN$ e un $a\in A$ tali che $x^{m}(1+ax)\in\pp_{n-1}$; poiché $x\not\in\pp_{n-1}$ deve necessariamente essere $1+ax\in\pp_{n-1}$. Ma allora $1+ax\in\pp_{n}$; essendo $x\in\pp_n$ segue che $1\in\pp_n$, assurdo. Allora localizzando per $S_x^{-1}$ otteniamo la catena di primi di $A_{\{x\}}$
+$$
+S_x^{-1}\pp_0\subsn S_x^{-1}\pp_1\subsn\ldots S_x^{-1}\pp_{n-1}
+$$
+che deve avere lunghezza $\le\ell-1$, pertanto $n\le\ell$. Abbiamo dimostrato che ogni catena finita di primi di $A$ ha lunghezza al più $\ell$, da cui $\dim A\le\ell$.
+\end{itemize}
+\end{proof}
+
+\newpage
+
+\subsection*{Esercizio 3.5}
+Sia $A\subs B$ un'estensione intera, $\kk$ un campo algebricamente chiuso, $\map{f}{A}{\kk}$ un morfismo di anelli. Dimostrare che $f$ si può estendere a tutto $B$.
+\begin{proof}
+Sia $\injmap{i}{A}{B}$ l'inclusione, e siano $\map{f^*}{\Spec\kk}{\Spec A}\comma\map{i^*}{\Spec B}{\Spec A}$ le mappe indotte rispettivamente da $f\comma i$. Sia $\pp=f^*(0)\in\Spec A$; per \emph{lying over} esiste un primo $\qq\in\Spec B$ tale che $i^*(\qq)=\pp$. Allora l'estensione $\injmap{i'}{A/\pp}{B/\qq}$ è intera, e $f$ passa al quoziente $\map{f'}{A/\pp}{\kk}$. Detti $\kappa(\pp)\comma\kappa(\qq)$ i campi dei quozienti rispettivamente di $A/\pp\comma B/\qq$, $i'$ si estende a $\injmap{i''}{\kappa(\pp)}{\kappa(\qq)}$ e $f'$ a $\map{f''}{\kappa(\pp)}{\kk}$. Inoltre l'estensione $\injmap{i''}{\kappa(\pp)}{\kappa(\qq)}$ è algebrica. Poiché $\kk$ è algebricamente chiuso, la mappa $f''$ si estende a $\map{g''}{\kappa(\qq)}{\kk}$.
+$$
+\begin{diagram}
+\phantom{}&&\kk\\
+A\rar\ar[d,hook,"i"]\ar[urr,bend left=20,"f"]&A/\pp\ar[r,hook]\ar[d,hook,"i'"]\ar[ur,bend left=5,"f'"]&\kappa(\pp)\ar[d,hook,"i''"]\ar[u,"f''"]\\
+B\rar&B/\qq\rar&\kappa(\qq)\ar[uu,bend right=60,"g''"]
+\end{diagram}
+$$
+Come si vede dal diagramma commutativo, componendo $g''$ con la mappa $B\rightarrow B/\qq\rightarrow \kappa(\qq)$ si ottiene un'estensione di $f$ a tutto $B$.
+\end{proof}
+
+\newpage
+
+\subsection*{Esercizio 4.3}
+Sia $A$ un anello locale noetheriano e sia $M$ un $A$-modulo finitamente generato piatto. Dimostrare che $M$ è libero.
+
+\begin{proof}
+Sia $\mm$ l'ideale massimale di $A$. Sia $\map{\pi}{M}{M/\mm M}$ la proiezione, e siano $x_1,\ldots,x_n\in M$ tali che $\bar{x_1},\ldots,\bar{x_n}$ è una $A/\mm$-base di $M/\mm M$, dove $\bar{x_i}=\pi(x_i)$. Per Nakayama, l'applicazione $\map{\varphi}{A^n}{M}$ definita da
+$$
+\varphi(a_1,\ldots,a_n)=a_1x_1+\ldots+a_nx_n
+$$
+è suriettiva. Consideriamo allora la successione esatta
+$$
+\begin{diagram}
+0\rar&N\rar&A^n\ar[r,"\varphi"]&M\rar&0
+\end{diagram}
+$$
+dove $N=\ker\varphi$. Per l'Esercizio 2.6 possiamo tensorizzare per $A/\mm$, ottenendo la successione esatta
+$$
+\begin{diagram}
+0\rar&N/\mm N\rar&\left(A/\mm\right)^n\ar[r,"\bar{\varphi}"]&M/\mm\rar&0
+\end{diagram}
+$$
+dove
+$$
+\bar{\varphi}(\bar{a_1},\ldots,\bar{a_n})=\bar{a_1}\bar{x_1}+\ldots+\bar{a_n}\bar{x_n}.
+$$
+\end{proof}
+Poiché $\bar{x_1},\ldots,\bar{x_n}$ sono una $A/\mm$-base di $M/\mm M$, la mappa $\bar\varphi$ è un isomorfismo, dunque $N/\mm N=0$, ovvero $N=\mm N$. Ma $N$ è un sottomodulo dell'$A$-modulo noetheriano $A^n$, dunque è finitamente generato. Per Nakayama abbiamo $N=0$, dunque $\varphi$ è un isomorfismo, ovvero $M\iso A^n$.
+\newpage
+
+\subsection*{Esercizio 4.7}
+Supponiamo che sia $B=A[\beta]$ e sia $f$ il polinomio minimo di $\beta$. Supponiamo che la riduzione $\bar{f}$ di $f$ modulo $\pp$ abbia radici distinte. Dimostrare che il gruppo di decomposizione $G_\qq$ è isomorfo al gruppo di Galois di $\kappa(\qq)$ su $\kappa(\pp)$.
+\begin{proof}
+Supponiamo preliminarmente che $\pp$ e $\qq$ siano massimali. In questo caso $\kappa(\pp)=A/\pp$ e $\kappa(\qq)=B/\qq$. Sia
+$$
+f(t)=(t-\beta_1)\cdots(t-\beta_n).
+$$
+Allora
+$$
+\bar{f}(t)=(t-\bar{\beta_1})\cdots(t-\bar{\beta_n})
+$$
+dove $\bar{\beta_i}$ è la classe di $\beta_i$ modulo $\qq$. Per ipotesi $\bar{\beta_i}\neq\bar{\beta_j}$ ogniqualvolta $i\neq j$.
+Consideriamo la mappa naturale
+$$
+\map{\pi}{G_\qq}{\Gal(\kappa(\qq)/\kappa(\pp))}
+$$
+che sappiamo essere suriettiva. Sia $\sigma\in\ker\pi$. Allora $\sigma(\bar{\beta})=\bar{\beta}$, ovvero $\sigma(\beta)\equiv\beta\pmod\qq$. Ma $\beta$ e $\sigma(\beta)$ sono entrambe radici di $f$, e coincidono modulo $\qq$, dunque sono uguali. Allora $\sigma$ fissa $A$ e fissa $\beta$, dunque fissa $B$ e anche il suo campo dei quozienti, ovvero $L$. Segue che $\sigma=\1$.
+
+Se ora $\pp$ e $\qq$ sono primi qualunque, sia $S=A\setminus\pp$. Localizzando per $S$ otteniamo la seguente situazione
+$$
+\begin{diagram}
+A\ar[r,symbol=\subs]\ar[d,symbol=\subs]&S^{-1}A\ar[r,symbol=\subs]\ar[d,symbol=\subs]&K\ar[d,symbol=\subs]\\
+B\ar[r,symbol=\subs]&S^{-1}B\ar[r,symbol=\subs]&L
+\end{diagram}
+$$
+Osserviamo che $S^{-1}B=(S^{-1}A)[\beta]$, l'ipotesi su $f$ rimane soddisfatta anche modulo $S^{-1}\pp$ (infatti $\beta_i-\beta_j\in\qq$ se e solo se $\beta_i-\beta_j\in S^{-1}\qq$, essendo $\beta_i-\beta_j\in B$), $G_{S^{-1}\qq}=G_{\qq}\comma \kappa(S^{-1}\pp)=\kappa(\pp)\comma\kappa(S^{-1}\qq)=\kappa(\qq)$. Dunque possiamo ridurci al caso $\pp\comma\qq$ massimali.
+\end{proof}
+
+\newpage
+
+\subsection*{Esercizio 4.8}
+Supponiamo che $A$ sia noetheriano e che $B$ sia finitamente generato come $A$-modulo. Dimostrare che esistono $\beta\in B$ e $\delta\in A$ tali che:
+\begin{enumerate}
+\item $B_\delta=A_\delta[\beta]$;
+\item l'estensione $\kappa(\pp)\subs\kappa(\qq)$ sia separabile per ogni $\pp\in X_\delta$.
+\end{enumerate}
+\begin{proof}
+Poiché l'estensione $K\subs L$ è finita e separabile, per il teorema dell'elemento primitivo esiste $\gamma\in L$ tale che $L=K[\gamma]$. Esistono $\alpha\in A,\beta\in B$ tali che $\alpha\gamma=\beta$, dunque $L=K[\beta]$. Siano $b_1,\ldots,b_n$ generatori di $B$ come $A$-modulo. Per ogni $i$ esiste un polinomio $f_i\in K[t]$ tale che $f_i(\beta)=b_i$, dunque esistono $a_i\in A\comma g_i\in A[t]$ tali che $a_ib_i=g_i(\beta)$. Ponendo $\delta_1=a_1\cdots a_n$ abbiamo che $b_i\in A_{\delta_1}[\beta]$ per ogni $i$, pertanto $B_{\delta_1}=A_{\delta_1}[\beta]$.\\
+Siano $\beta_1,\ldots,\beta_m\in B$ i coniugati di $\beta$ in $L$. Poniamo
+$$
+\delta_2=\prod_{i\neq j}(\beta_i-\beta_j).
+$$
+Notiamo che $\delta_2\in B$, ma anche $\delta_2\in K$, poiché è fissato da tutti gli elementi di $\Gal(L/K)$, dunque $\delta_2\in A$. Sia ora $\pp\in X_{\delta_2}$ un primo di $A$ e $\qq\in Y_{\delta_2}$ un primo di $B$ sopra $\pp$. Sia
+$$
+f(t)=(t-\beta_1)\cdots(t-\beta_m)\in A[t]
+$$
+il polinomio minimo di $\beta$. Detto
+$$
+\bar{f}(t)=(t-\bar{\beta_1})\cdots(t-\bar{\beta_m})\in A/\pp[t]
+$$
+la riduzione di $f$ modulo $\pp$, le radici di $\bar{f}$ in $B/\qq$ sono tutte distinte (poiché $\beta_i-\beta_j\not\in\qq$ per $i\neq j$). Passando ai campi dei quozienti $\kappa(\pp)\comma\kappa(\qq)$ otteniamo che il polinomio minimo di $\bar{\beta}\in\kappa(\qq)$ divide $\bar{f}$, dunque ha tutte le radici distinte. Pertanto $\bar{\beta}$ è separabile su $\kappa(\pp)$, ma $\kappa(\qq)=\kappa(\pp)[\bar{\beta}]$, perciò l'estensione $\kappa(\pp)\subs\kappa(\qq)$ è separabile.\\
+Sia $\delta=\delta_1\delta_2\in A$. Naturalmente $A_\delta[\beta]=B_\delta$; poiché $X_\delta\subs X_{\delta_2}$ anche la proprietà (ii) è soddisfatta.
+\end{proof}
+
+\end{document}

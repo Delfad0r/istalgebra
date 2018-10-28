@@ -1,0 +1,159 @@
+\section{Abstract Nonsense}
+\begin{definition}
+Una categoria $\mathscr{C}$ consta di:
+\begin{itemize}
+\item una classe $\Ob(\mathscr{C})$ di oggetti (spesso abbreviata $\mathscr{C}$);
+\item per ogni $X,Y\in\Ob(\mathscr{C})$ un insieme $\Hom_{\mathscr{C}}(X,Y)$ di morfismi (spesso abbreviato $\Hom(X,Y)$);
+\item per ogni $X,Y,Z\in\Ob(\mathscr{C})$ una legge di composizione
+$$
+\circ:\Hom_{\mathscr{C}}(Y,Z)\times\Hom_{\mathscr{C}}(X,Y)\longrightarrow\Hom_{\mathscr{C}}(X,Z).
+$$
+\end{itemize}
+La legge di composizione soddisfa le seguenti proprietà:
+\begin{itemize}
+\item è associativa, ovvero per ogni $f\in\Hom_\mathscr{C}(X,Y)\comma g\in\Hom_\mathscr{C}(Y,Z)\comma h\in\Hom_\mathscr{C}(Z,W)$ vale $h\circ(g\circ f)=(h\circ g)\circ f$;
+\item per ogni $X\in\Ob(\mathscr{C})$ esiste un morfismo $\1_X\in\Hom_{\mathscr{C}}$ tale che per ogni $f\in\Hom_\mathscr{C}(X,Y)\comma g\in\Hom_\mathscr{C}(Y,X)$ vale $f\circ\1_X=f\comma\1_X\circ g=g$.
+\end{itemize}
+\end{definition}
+\begin{definition}
+Sia $\mathscr{C}$ una categoria. Si chiama categoria opposta di $\mathscr{C}$ la categoria $\mathscr{C}^{\op}$ così definita:
+\begin{itemize}
+\item $\Ob(\mathscr{C}^{\op})=\Ob(\mathscr{C})$;
+\item per ogni $X,Y\in\Ob(\mathscr{C}^{\op})$, $\Hom_{\mathscr{C}^{\op}}(X,Y)=\Hom_{\mathscr{C}}(Y,X)$;
+\item per ogni $f\in\Hom_\mathscr{C^{\op}}(X,Y)\comma g\in\Hom_\mathscr{C^{\op}}(Y,Z)$, $g\circ^{\op}f=f\circ g$.
+\end{itemize}
+\end{definition}
+\begin{definition}
+Siano $\mathscr{C},\mathscr{D}$ due categorie. Un funtore (covariante) $\map{F}{\mathscr{C}}{\mathscr{D}}$ è una mappa che associa:
+\begin{itemize}
+\item a ogni oggetto $X\in\mathscr{C}$ un oggetto $F(X)\in\mathscr{D}$;
+\item a ogni morfismo $f\in\Hom_\mathscr{C}(X,Y)$ un morfismo $F(f)\in\Hom_\mathscr{D}(F(X),F(Y))$.
+\end{itemize}
+Un funtore deve soddisfare le seguenti proprietà:
+\begin{itemize}
+\item per ogni $X\in\mathscr{C}$ vale $F(\1_X)=\1_{F(X)}$;
+\item per ogni $f\in\Hom_\mathscr{C}(X,Y)\comma g\in\Hom_\mathscr{C}(Y,Z)$ vale $F(g\circ f)=F(g)\circ F(f)$.
+\end{itemize}
+\end{definition}
+\begin{definition}
+Siano $\mathscr{C},\mathscr{D}$ due categorie. Un funtore controvariante $\map{F}{\mathscr{C}}{\mathscr{D}}$ è un funtore covariante da $\mathscr{C}$ in $\mathscr{D}^{\op}$.
+\end{definition}
+\begin{definition}
+Siano $\map{F,G}{\mathscr{C}}{\mathscr{D}}$ due funtori. Si chiama trasformazione naturale da $F$ in $G$ una collezione di morfismi $\eta=\{\eta_X\}_{X\in\mathscr{C}}$ con $\eta_X\in\Hom_\mathscr{D}(F(X),G(X))$ tale che per ogni $f\in\Hom_\mathscr{C}(X,Y)$ il seguente diagramma commuta
+$$
+\begin{diagram}
+F(X)\ar[r,"\eta_X"]\ar[d,"F(f)"]&G(X)\ar[d,"G(f)"]\\
+F(Y)\ar[r,"\eta_Y"]&G(Y)
+\end{diagram}
+$$
+\end{definition}
+\begin{definition}
+Siano $\mathscr{C},\mathscr{D}$ due categorie. La categoria $\cat{Fun}(\mathscr{C},\mathscr{D})$ è così definita:
+\begin{itemize}
+\item $\Ob(\cat{Fun}(\mathscr{C},\mathscr{D}))$ è la classe dei funtori da $\mathscr{C}$ in $\mathscr{D}$;
+\item $\Hom(F,G)$ è l'insieme delle trasformazioni naturali da $F$ in $G$;
+\item per ogni $\eta=\{\eta_X\}_{X\in\mathscr{C}}\in\Hom(F,G)\comma\tau=\{\tau_X\}_{X\mathscr{C}}\in\Hom(G,H)$,
+$$
+\tau\circ\eta=\{\tau_X\circ\eta_X\}_{X\in\mathscr{C}}.
+$$
+\end{itemize}
+Si definisce inoltre $\cat{Fun}^*(\mathscr{C},\mathscr{D})=\cat{Fun}(\mathscr{C},\mathscr{D}^{\op})$.
+\end{definition}
+\begin{proposition}
+Sia $\mathscr{C}$ una categoria, $X\in\mathscr{C}$ un oggetto, $F\in\cat{Fun}^*(\mathscr{C},\cat{Set})$ un funtore controvariante. Poniamo $h_X=\Hom(\--,X)$. Allora esiste un isomorfismo $\Hom(h_X,F)\iso F(X)$ naturale in $F$ e in $X$.
+\end{proposition}
+\begin{corollary}
+Siano $X,Y\in\mathscr{C}$ oggetti. Allora esiste un isomorfismo $\Hom(h_X,h_Y)\iso\Hom(X,Y)$ naturale in $X$ e in $Y$.
+\end{corollary}
+\begin{definition}
+Siano $I,\mathscr{C}$ categorie, $\map{F}{I}{\mathscr{D}}$ un funtore. Si chiama limite inverso o proiettivo (e si indica con $\plim F(i)$) un oggetto $L\in\mathscr{C}$  dotato di morfismi $\varphi_i\in\Hom(L,F(i))$ per $i\in I$ con le seguenti proprietà:
+\begin{enumerate}
+\item per ogni morfismo $f\in\Hom_I(i,j)$ il seguente diagramma commuta
+$$
+\begin{diagram}
+\phantom{}&L\ar[dl,"\varphi_i"]\ar[dr,"\varphi_j"]\\
+F(i)\ar[rr,"F(f)"]&&F(j)
+\end{diagram}
+$$
+\item per ogni oggetto $L'\in\mathscr{C}$ (dotato di morfismi $\varphi_i'\in\Hom(L',F(i))$ per $i\in I$) che soddisfa la (i) esiste un unico morfismo $\varphi\in\Hom(L',L)$ che fa commutare il seguente diagramma per ogni $f\in\Hom_I(i,j)$
+$$
+\begin{diagram}
+\phantom{}&L'\ar[ddl,bend right=30,"\varphi_i'"]\ar[ddr,bend left=30,"\varphi_j'"]\ar[d,"\exists!\varphi"]\\
+\phantom{}&L\ar[dl,"\varphi_i"]\ar[dr,"\varphi_j"]\\
+F(i)\ar[rr,"F(f)"]&&F(j)
+\end{diagram}
+$$
+\end{enumerate}
+\end{definition}
+\begin{definition}
+Siano $I,\mathscr{C}$ categorie, $\map{F}{I}{\mathscr{D}}$ un funtore. Si chiama limite diretto o colimite (e si indica con $\dlim F(i)$ un oggetto $L\in\mathscr{C}$  dotato di morfismi $\psi_i\in\Hom(F(i),L)$ per $i\in I$ con le seguenti proprietà:
+\begin{enumerate}
+\item per ogni morfismo $f\in\Hom_I(i,j)$ il seguente diagramma commuta
+$$
+\begin{diagram}
+\phantom{}&L\\
+F(i)\ar[rr,"F(f)"]\ar[ur,"\psi_i"]&&F(j)\ar[ul,"\psi_j"]
+\end{diagram}
+$$
+\item per ogni oggetto $L'\in\mathscr{C}$ (dotato di morfismi $\psi_i'\in\Hom(F(i),L')$ per $i\in I$) che soddisfa la (i) esiste un unico morfismo $\psi\in\Hom(L,L')$ che fa commutare il seguente diagramma per ogni $f\in\Hom_I(i,j)$
+$$
+\begin{diagram}
+\phantom{}&L'\\
+\phantom{}&L\ar[u,"\psi"]\\
+F(i)\ar[rr,"F(f)"]\ar[ur,"\psi_i"]\ar[uur,bend left=30,"\psi_i'"]&&F(j)\ar[ul,"\psi_j"]\ar[uul,bend right=30,"\psi_j'"]
+\end{diagram}
+$$
+\end{enumerate}
+\end{definition}
+\begin{definition}
+Sia $\mathscr{C}$ una categoria, $I$ una categoria in cui gli unici morfismi sono le identità. Sia $\map{F}{I}{\mathscr{C}}$ un funtore.
+Si chiama prodotto degli $F(i)$ (e si indica con $\prod_{i\in I}F(i)$) l'oggetto di $\mathscr{C}$ (se esiste) $\plim F(i)$.
+\end{definition}
+\begin{definition}
+Sia $\mathscr{C}$ una categoria, $I$ una categoria con due oggetti $*_1$ e $*_2$ in cui gli unici morfismi oltre alle identità $\1_{*_1}\comma\1_{*_2}$ vanno da $*_1$ in $*_2$. Sia $\map{F}{I}{\mathscr{C}}$ un funtore, $X=F(*_1)\comma Y=F(*_2)$,
+$$
+\Phi=F(\Hom_I(*_1,*_2))\subs\Hom_{\mathscr{C}}(X,Y).
+$$
+Si chiama equalizzatore di $\Phi$ (e si indica con $\Eq\Phi$) l'oggetto di $\mathscr{C}$ (se esiste) $\plim F(i).$
+\end{definition}
+\begin{proposition}
+Siano $I,\mathscr{C}$ categorie, $\map{F}{I}{\mathscr{C}}$ un funtore. Supponiamo esista il prodotto $X=\prod_{i\in I}F(i)$, e siano $\map{\pi_i}{X}{F(i)}$ le proiezioni. Per ogni $\varphi\in\Hom_I(i,j)$ sia $T_\varphi\in\Hom_\mathscr{C}(X,X)$ tale che
+$$
+\pi_k\circ T_\varphi=
+\begin{cases}
+\pi_k&\text{se $k\neq j$}\\
+F(\varphi)\circ\pi_i&\text{se $k=j$}
+\end{cases}.
+$$
+Allora
+$$
+\plim F(i)=\Eq\{T_\varphi\}.
+$$
+\end{proposition}
+\begin{proposition}
+Consideriamo il diagramma
+$$
+\begin{diagram}
+\phantom{}&0\dar&0\dar&0\dar\\
+\ldots\rar&A_{n+1}\rar\dar&A_n\rar\dar&A_{n-1}\rar\dar&\ldots\\
+\ldots\rar&B_{n+1}\rar\dar&B_n\rar\dar&B_{n-1}\rar\dar&\ldots\\
+\ldots\rar&C_{n+1}\rar\dar&C_n\rar\dar&C_{n-1}\rar\dar&\ldots\\
+\phantom{}&0&0&0
+\end{diagram}
+$$
+in cui le colonne sono esatte. Siano $\hat{A}=\plim A_n\comma\hat{B}=\plim B_n\comma\hat{C}=\plim C_n$. Allora la successione
+$$
+\begin{diagram}
+0\rar&\hat{A}\rar&\hat{B}\rar&\hat{C}
+\end{diagram}
+$$
+è esatta. Inoltre se le mappe $A_{n+1}\rightarrow A_n$ sono tutte suriettive allora la successione
+$$
+\begin{diagram}
+\hat{B}\rar&\hat{C}\rar&0
+\end{diagram}
+$$
+è esatta.
+\end{proposition}
+
+

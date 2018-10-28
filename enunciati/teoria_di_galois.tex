@@ -7,7 +7,7 @@ $$
 \qq\arrow[r,symbol=\subs]\arrow[u,mapsto,"\varphi"]&B\arrow[r,symbol=\subs]&L
 \end{diagram}
 $$
-Sia $G=\Gal(L/K)\comma Y_\pp=\varphi^{-1}(\pp)$. Siano $k(\pp)\comma k(\qq)$ i campi dei quozienti, rispettivamente, di $A/\pp\comma B/\qq$.
+Sia $G=\Gal(L/K)\comma Y_\pp=\varphi^{-1}(\pp)$. Siano $\kappa(\pp)\comma \kappa(\qq)$ i campi dei quozienti, rispettivamente, di $A/\pp\comma B/\qq$.
 \end{setting}
 \begin{lemma}
 \leavevmode
@@ -24,21 +24,46 @@ G_\qq=\{\sigma\in G:\sigma\qq=\qq\}.
 $$
 \end{definition}
 \begin{lemma}
-Sia $L^\qq=L^{G_\qq}\comma B^\qq=B\cap L^\qq\comma \qq'=\qq\cap B^\qq\comma k(\qq')$ il campo del quozienti di $B^{\qq}/\qq'$.
+Sia $L^\qq=L^{G_\qq}\comma B^\qq=B\cap L^\qq\comma\qq'=\qq\cap B^\qq\comma \kappa(\qq')$ il campo del quozienti di $B^{\qq}/\qq'$.
 \begin{itemize}
 \item $L^\qq$ è il minimo campo $E$ tale che $K\subs E\subs L$ e $\qq$ è l'unico primo di $B$ sopra $\qq\cap E\in\Spec(B\cap E)$.
-\item L'inclusione naturale $k(\pp)\hookrightarrow k(\qq')$ è un isomorfismo.
+\item L'inclusione naturale $\kappa(\pp)\hookrightarrow\kappa(\qq')$ è un isomorfismo.
 \end{itemize}
 \end{lemma}
 \begin{proposition}
-L'estensione $k(\pp)\hookrightarrow k(\qq)$ è normale e i polinomi minimi degli elementi di $k(\qq)$ hanno grado limitato.
+L'estensione $\kappa(\pp)\hookrightarrow \kappa(\qq)$ è normale e i polinomi minimi degli elementi di $k(\qq)$ hanno grado uniformemente limitato.
 \end{proposition}
 \begin{proposition}
-Sia $\map{\pi}{G_\qq}{\Gal(k(\qq)/k(\pp))}$ la mappa derivante dall'azione di $G_\qq$ su $B/\qq$ (e dunque su $k(\qq)$). Allora $\pi$ è suriettiva.
+Sia $\map{\pi}{G_\qq}{\Gal(\kappa(\qq)/\kappa(\pp))}$ la mappa derivante dall'azione di $G_\qq$ su $B/\qq$ (e dunque su $\kappa(\qq)$). Allora $\pi$ è suriettiva.
 \end{proposition}
-\begin{corollary}
-Se $L=K[\alpha]$ e $\alpha$ è separabile su $k(\pp)$, allora $\pi$ è un isomorfismo.
-\end{corollary}
+\begin{lemma}
+Sia $G$ un gruppo, $L$ un campo,
+$$
+\map{\chi_1,\ldots\chi_n}{G}{L^*}
+$$
+omomorfismi di gruppi a due a due distinti. Allora $\chi_1\comma\ldots\comma\chi_n$ sono $L$-linearmente indipendenti.
+\end{lemma}
+\begin{proposition}
+Se $A$ è noetheriano, allora l'estensione $A\subs B$ è finita.
+\end{proposition}
+\begin{setting}
+Supponiamo d'ora in poi che $A$ sia noetheriano con $\dim A=1$.
+\end{setting}
+\begin{definition}
+Si chiama indice di inerzia l'intero
+$$
+f_\pp=[\kappa(\qq):\kappa(\pp)]
+$$
+(non dipende da $\qq$).
+\end{definition}
+\begin{definition}
+$A_\pp$ e $B_\qq$ sono domini normali locali noetheriani di dimensione 1, dunque sono domini di valutazione discreta, diciamo $v_A$ e $v_B$. Siano $x\in A_\pp\comma y\in B_\qq$ generatori rispettivamente degli ideali massimali $\pp A_\pp\comma\qq B_\qq$. Supponiamo senza perdita di generalità che $v_A(x)=1$ e $v_B|_A=v_A$. Si chiama ramificazione di $\pp$ l'intero $e_\pp=(v_B(y))^{-1}$ (non dipende da $\qq$).
+\end{definition}
 
+\begin{proposition}
+$$
+[L:K]=\frac{\card{G}}{\card{G_\qq}}f_\pp e_\pp
+$$
+\end{proposition}
 
 

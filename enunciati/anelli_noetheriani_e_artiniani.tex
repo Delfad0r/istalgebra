@@ -1,0 +1,51 @@
+\section{Anelli Noetheriani e Artiniani}
+
+\begin{definition}
+Sia $M$ un $A$-modulo. Si chiama lunghezza di $M$ l'intero (eventualmente $+\infty$)
+$$
+\ell(M)=\sup\{n\in\NN:\text{esistono $M_0\subsn\ldots\subsn M_n$ sottomoduli di $M$}\}
+$$
+\end{definition}
+\begin{lemma}
+Sia $M$ un $A$-modulo.
+\begin{itemize}
+\item Se esiste una catena massimale di sottomoduli di $M$ di lunghezza $n$, allora tutte le catene massimali di sottomoduli hanno lunghezza $n$.
+\item $\ell(M)<+\infty$ se e solo se $M$ è artiniano e noetheriano.
+\end{itemize}
+\end{lemma}
+\begin{proposition}
+Sia $A$ un anello. Allora $A$ è artiniano se e solo se è noetheriano e ha dimensione 0.
+\end{proposition}
+\begin{definition}
+Sia $\kk$ un campo. Si dice valutazione una funzione $\map{v}{\kk^*}{\QQ}$ che soddisfa le seguenti proprietà per ogni $x,y\in\kk$:
+\begin{enumerate}
+\item $v(xy)=v(x)+v(y)$;
+\item $v(x-y)\ge\min\{v(x),v(y)\}$.
+\end{enumerate}
+$v$ si dice discreta se $\im v\subs\ZZ q$ per un qualche $q\in\QQ$. Si pone convenzionalmente $v(0)=+\infty$.
+\end{definition}
+\begin{definition}
+Un dominio $A$ si dice di valutazione se esiste una valutazione $\map{v}{K}{\QQ}$ (dove $K$ è il campo dei quozienti di $A$) tale che 
+$$
+A=\{x\in K:v(x)\ge0\}.
+$$
+A si dice di valutazione discreta se $v$ è discreta.
+\end{definition}
+\begin{proposition}
+Sia $A$ un dominio di valutazione, e sia
+$$
+\mm=\{x\in A:v(x)>0\}.
+$$
+\begin{itemize}
+\item $(A,\mm)$ è locale.
+\item Se $v$ è discreta, sia $x\in A$ tale che $v(x)>0$ è minimo possibile. Allora tutti gli ideali non nulli di $A$ sono della forma $(x^n)$ per un qualche $n\in\NN$.
+\end{itemize}
+\end{proposition}
+\begin{proposition}
+Sia $(A,\mm)$ un anello locale noetheriano con $\dim A=1$. Allora sono equivalenti:
+\begin{enumerate}
+\item $A$ è un dominio di valutazione discreta;
+\item $A$ è un dominio normale;
+\item $\mm$ è principale.
+\end{enumerate}
+\end{proposition}
