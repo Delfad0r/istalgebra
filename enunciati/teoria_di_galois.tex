@@ -31,7 +31,7 @@ Sia $L^\qq=L^{G_\qq}\comma B^\qq=B\cap L^\qq\comma\qq'=\qq\cap B^\qq\comma \kapp
 \end{itemize}
 \end{lemma}
 \begin{proposition}
-L'estensione $\kappa(\pp)\hookrightarrow \kappa(\qq)$ è normale e i polinomi minimi degli elementi di $k(\qq)$ hanno grado uniformemente limitato.
+L'estensione $\kappa(\pp)\hookrightarrow \kappa(\qq)$ è normale e i polinomi minimi degli elementi di $\kappa(\qq)$ hanno grado uniformemente limitato.
 \end{proposition}
 \begin{proposition}
 Sia $\map{\pi}{G_\qq}{\Gal(\kappa(\qq)/\kappa(\pp))}$ la mappa derivante dall'azione di $G_\qq$ su $B/\qq$ (e dunque su $\kappa(\qq)$). Allora $\pi$ è suriettiva.
@@ -39,7 +39,7 @@ Sia $\map{\pi}{G_\qq}{\Gal(\kappa(\qq)/\kappa(\pp))}$ la mappa derivante dall'az
 \begin{lemma}
 Sia $G$ un gruppo, $L$ un campo,
 $$
-\map{\chi_1,\ldots\chi_n}{G}{L^*}
+\chi_1,\ldots\chi_n:G\longrightarrow L^*
 $$
 omomorfismi di gruppi a due a due distinti. Allora $\chi_1\comma\ldots\comma\chi_n$ sono $L$-linearmente indipendenti.
 \end{lemma}
@@ -50,7 +50,7 @@ Se $A$ è noetheriano, allora l'estensione $A\subs B$ è finita.
 Supponiamo d'ora in poi che $A$ sia noetheriano con $\dim A=1$.
 \end{setting}
 \begin{definition}
-Si chiama indice di inerzia l'intero
+Si chiama indice di inerzia di $\pp$ l'intero
 $$
 f_\pp=[\kappa(\qq):\kappa(\pp)]
 $$
@@ -59,11 +59,27 @@ $$
 \begin{definition}
 $A_\pp$ e $B_\qq$ sono domini normali locali noetheriani di dimensione 1, dunque sono domini di valutazione discreta, diciamo $v_A$ e $v_B$. Siano $x\in A_\pp\comma y\in B_\qq$ generatori rispettivamente degli ideali massimali $\pp A_\pp\comma\qq B_\qq$. Supponiamo senza perdita di generalità che $v_A(x)=1$ e $v_B|_A=v_A$. Si chiama ramificazione di $\pp$ l'intero $e_\pp=(v_B(y))^{-1}$ (non dipende da $\qq$).
 \end{definition}
-
 \begin{proposition}
 $$
 [L:K]=\frac{\card{G}}{\card{G_\qq}}f_\pp e_\pp
 $$
 \end{proposition}
+\begin{proposition}
+Supponiamo che $A$ sia un dominio di valutazione discreta con valutazione $\map{v}{K}{\QQ}$ e che $K$ sia completo rispetto alla norma indotta da $v$.
+\begin{itemize}
+\item $B$ è un dominio di valutazione discreta.
+\item $v$ si estende in modo unico a $L$.
+\item $L$ è completo rispetto alla norma indotta da $v$.
+\item $B=\{x\in L:v(x)\ge0\}$.
+\end{itemize}
+\end{proposition}
+\begin{corollary}
+Nelle ipotesi della proposizione precedente:
+\begin{itemize}
+\item $v(\sigma x)=v(x)$ per ogni $x\in L$;
+\item $[L:K]v(x)=v(Nx)$.
+\end{itemize}
+
+\end{corollary}
 
 

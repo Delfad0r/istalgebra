@@ -32,7 +32,7 @@ $$
 A si dice di valutazione discreta se $v$ è discreta.
 \end{definition}
 \begin{proposition}
-Sia $A$ un dominio di valutazione, e sia
+Sia $A$ un dominio di valutazione con valutazione $\map{v}{K}{\QQ}$, e sia
 $$
 \mm=\{x\in A:v(x)>0\}.
 $$
@@ -41,6 +41,25 @@ $$
 \item Se $v$ è discreta, sia $x\in A$ tale che $v(x)>0$ è minimo possibile. Allora tutti gli ideali non nulli di $A$ sono della forma $(x^n)$ per un qualche $n\in\NN$.
 \end{itemize}
 \end{proposition}
+\begin{proposition}
+Sia $A$ un dominio di valutazione discreta con valutazione $\map{v}{K}{\QQ}$, $\mm=\{x\in A:v(x)>0\}$, $x_0$ un generatore di $\mm$. La valutazione $v$ induce su $K$ una struttura di campo normato mediante la norma $\norm{x}=q^{-v(x)}$ dove
+$$
+q=
+\begin{cases}
+\card{A/\mm}&\text{se $\card{A/\mm}<+\infty$}\\
+e&\text{altrimenti}
+\end{cases}.
+$$
+Siano $\hat{K},\hat{A},\hat{\mm}$ i completamenti di $K,A,\mm$ rispetto alla metrica indotta dalla norma. Le operazioni aritmetiche e la norma si estendono per continuità a $\hat{K}$.
+\begin{itemize}
+\item $\hat{K}$ è il campo dei quozienti di $\hat{A}$.
+\item $\hat{A}=\{x\in\hat{K}:\norm{x}\le 1\}$.
+\item $\hat{\mm}=\{x\in\hat{K}:\norm{x}<1\}=\{x\in\hat{K}:\norm{x}\le\frac{1}{q}\}=x_0\hat{K}$.
+\item $\hat{A}=\plim A/\mm^n$.
+\end{itemize}
+
+\end{proposition}
+
 \begin{proposition}
 Sia $(A,\mm)$ un anello locale noetheriano con $\dim A=1$. Allora sono equivalenti:
 \begin{enumerate}

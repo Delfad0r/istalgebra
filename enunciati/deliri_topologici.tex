@@ -1,0 +1,36 @@
+\section{Deliri Topologici}
+\begin{definition}
+Sia $G$ un gruppo topologico abeliano in cui $0$ ha un sistema fondamentale di intorni numerabile.
+\begin{itemize}
+\item Una successione $(x_n)_{n\in\NN}$ di elementi di $G$ si dice di Cauchy se per ogni $U$ intorno di $0$ esiste un $m\in\NN$ tale che per ogni $i,j\ge m$ vale $x_i-x_j\in U$.
+\item Si indica con $\Cauchy(G)$ il gruppo topologico i cui elementi sono le successioni di Cauchy in $G$, le operazioni si fanno termine a termine, e un sistema fondamentale di intorni di $0$ è
+$$
+\{\{(x_n)_{n\in\NN}\in\Cauchy(G):\text{$x_n\in U$ definitivamente}\}:\text{$U\subs G$ intorno di $0$}\}.
+$$
+\item Si definisce completamento di $G$ il gruppo topologico $\hat{G}=\Cauchy(G)/N$ dove $N$ è il sottogruppo di $\Cauchy(G)$ delle successioni che tendono a $0$.
+\end{itemize}
+\end{definition}
+\begin{proposition}
+Sia $G$ un gruppo topologico abeliano di Hausdorff. Allora l'omomorfismo $G\rightarrow\hat{G}$ che associa a $x\in G$ la classe della successione costante $(x)_{n\in\NN}$ è un'immersione.
+\end{proposition}
+
+\begin{proposition}
+Sia $G$ un gruppo abeliano,
+$$
+G\sups H_0\sups H_1\sups\ldots
+$$
+una successione di sottogruppi con $\bigcap_{n\in\NN}H_n=0$. Consideriamo su $G$ la topologia in cui un sistema fondamentale di intorni di $0$ è $\{H_n\}_{n\in\NN}$ (si verifica che $G$ è un gruppo topologico con questa topologia).
+\begin{itemize}
+\item $G$ è di Hausdorff.
+\item Per ogni $n\in\NN$ consideriamo la mappa
+\function{\varphi_n}{\Cauchy(G)}{G/H_n}{(x_i)_{i\in\NN}}{\text{$(x_i+H_n)$ per $i$ grande}}
+(è ben definita poiché $x_i$ è definitivamente costante modulo $H_n$). Tale mappa passa al quoziente $\map{\hat{\varphi}_n}{\hat{G}}{G/H_n}$. Allora $\hat{G}=\plim G/H_n$.
+\end{itemize}
+\end{proposition}
+\begin{remark}
+Quando detto finora si applica anche ad anelli topologici sostituendo i sottogruppi con ideali.
+\end{remark}
+\begin{proposition}
+Sia $\kk$ un campo normato completo non discreto, $V$ un $\kk$-spazio vettoriale topologico di Hausdorff di dimensione finita $n$. Allora $V\iso\kk^n$ come spazi vettoriali topologici.
+\end{proposition}
+
