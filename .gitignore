@@ -2,7 +2,7 @@
 *.pdf
 
 ## mystyle
-*/mystyle.sty
+?*/mystyle.sty
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

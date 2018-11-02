@@ -55,7 +55,7 @@ urlcolor=black
 \newtheorem{proposition}[theorem]{Proposizione}
 \newtheorem{corollary}[theorem]{Corollario}
 \theoremstyle{remark}
-\newtheorem*{remark}{Osservazione}
+\newtheorem*{remark}{Nota}
 \newtheorem*{example}{Esempio}
 
 \newcommand*{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
@@ -68,8 +68,14 @@ urlcolor=black
 #5&\longmapsto#6
 \end{align*}
 }
+\newcommand*{\function}[5]{%
+\begin{alignat*}{3}
+#1:\;&&#2&\longrightarrow#3\\
+&&#4&\longmapsto#5
+\end{alignat*}
+}
+\newcommand*{\norm}[1]{\|#1\|}
 \renewcommand*{\emptyset}{\varnothing}
-%\newcommand*{\KK}{\mathds{K}}
 \newcommand*{\kk}{\mathds{k}}
 \newcommand*{\NN}{\mathds{N}}
 \newcommand*{\ZZ}{\mathds{Z}}
@@ -106,3 +112,4 @@ urlcolor=black
 \DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\Eq}{Eq}
 \DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Cauchy}{Cauchy}
