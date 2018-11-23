@@ -15,4 +15,5 @@ deploy:
   file: 
   - ./enunciati.pdf
   - ./esercizi1.pdf
+  - ./esercizi2.pdf
   skip_cleanup: true
