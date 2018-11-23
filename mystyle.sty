@@ -8,6 +8,7 @@
 \usepackage{amsthm}
 \usepackage{dsfont}
 \usepackage{mathrsfs}
+\usepackage{mathtools}
 \usepackage{theoremref}
 \usepackage{thmtools}
 \usepackage{tikz}
@@ -50,6 +51,7 @@ urlcolor=black
 \newtheorem*{setting}{Setting}
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[section]
+\newtheorem*{theorem*}{Teorema}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem{proposition}[theorem]{Proposizione}
@@ -98,6 +100,11 @@ urlcolor=black
 \newcommand*{\card}[1]{\ensuremath{\left\vert#1\right\vert}}
 \newcommand*{\plim}{\varprojlim}
 \newcommand*{\dlim}{\varinjlim}
+\newcommand*{\pr}{\mathbin{\Pi}}
+\newcommand*{\copr}{\amalg}
+\newcommand*{\presuper}[2]{\prescript{#1}{}{#2}}
+\newcommand*{\dirsum}{\oplus}
+\newcommand*{\Dirsum}{\bigoplus}
 
 
 \DeclareMathOperator{\Spec}{Spec}
@@ -113,3 +120,8 @@ urlcolor=black
 \DeclareMathOperator{\Eq}{Eq}
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Cauchy}{Cauchy}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\coInd}{coInd}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Ann}{Ann}

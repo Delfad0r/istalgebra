@@ -1,0 +1,321 @@
+\documentclass[a4paper]{article}
+
+\usepackage{mystyle}
+\usepackage{subcaption}
+\usepackage{titlesec}
+
+\newcommand{\subsectionbreak}{\clearpage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\today}
+\chead{\textbf{Esercizi II}}
+\rhead{Filippo Gianni Baroni}
+
+\newcommand*{\cont}{\ensuremath{\text{cont}}}
+
+\begin{document}
+\subsection*{Esercizio 6.2}
+Come osservazione preliminare, notiamo che i cocicli mandano $\1$ (l'identità del gruppo di Galois) in 1 (l'elemento neutro di $G$).
+\begin{enumerate}[(1)]
+\item Osserviamo che $G^{\Sigma_L}$ è $\Gamma$-invariante. Sia infatti $g\in G^{\Sigma_L}\comma\gamma\in\Gamma\comma\sigma\in\Sigma_L$. Allora
+$$
+\presuper{\sigma\gamma}{g}=\presuper{\gamma(\gamma^{-1}\sigma\gamma)}{g}=\presuper{\gamma}{g}
+$$
+poiché $\gamma^{-1}\sigma\gamma\in\Sigma_L$, essendo $\Sigma_L$ un sottogruppo normale di $\Gamma$. L'azione di $\Sigma_L$ su $G^{\Sigma_L}$ è banale, dunque otteniamo per passaggio al quoziente un'azione di $\Gamma/\Sigma_L=\Gamma_L$ su $G^{\Sigma_L}$.
+
+Mostriamo ora che esiste un'inclusione di $Z^1(\Gamma_L,G^{\Sigma_L})$ in $Z^1_\cont(\Gamma,G)$. Sia $\map{c}{\Gamma_L}{G^{\Sigma_L}}$ un cociclo. Consideriamo il diagramma
+$$
+\begin{diagram}
+\Gamma\rar[dashed,"\hat{c}"]\dar["p"]&G\\
+\Gamma_L\rar["c"]&G^{\Sigma_L}\uar[symbol=\subs]
+\end{diagram}
+$$
+dove $\map{p}{\Gamma}{\Gamma_L}$ è la proiezione al quoziente (ovvero la restrizione a $L$).
+\begin{itemize}
+\item\textbf{$\map{\hat{c}}{\Gamma}{G}$ è un cociclo.} Se $\gamma,\delta\in\Gamma$, allora
+$$
+\hat{c}(\gamma\delta)=c(p(\gamma)p(\delta))=c(p(\gamma))\presuper{p(\gamma)}{c(p(\delta))}=\hat{c}(\gamma)\presuper{\gamma}{\hat{c}(\delta)}
+$$
+poiché $c$ è a sua volta un cociclo e per come abbiamo definito l'azione di $\Gamma_L$ su $G^{\Sigma_L}$.
+\item\textbf{$\hat{c}$ è continua.} Se $\gamma\in\Gamma$, consideriamo l'intorno aperto $U=\gamma+\Sigma_L$ di $\gamma$. Vale
+$$
+\hat{c}(U)=c(p(\gamma+\Sigma_L))=\{c(p(\gamma))\}=\{\hat{c}(\gamma)\},
+$$
+dunque $\hat{c}$ è continua.
+\item\textbf{La mappa $c\mapsto\hat{c}$ è iniettiva.} Siano $c,d\in Z^1(\Gamma_L,G^{\Sigma_L})$ tali che $\hat{c}=\hat{d}$. Allora $c\circ p=d\circ p$. Essendo $p$ suriettiva, segue che $c=d$.
+\end{itemize}
+\item Sia $d\in Z^1_\cont(\Gamma,G)$. Mostriamo che esistono $L\sups E$ finita di Galois e $c\in Z^1(\Gamma_L,G^{\Sigma_L})$ tali che $\hat{c}=d$. Poiché $d$ è continua e $\Gamma$ è compatto, anche $d(\Gamma)$ è compatto, dunque finito (avendo $G$ la topologia discreta). Sappiamo che, per ogni $g\in d(\Gamma)$, $\Stab g\subs\Gamma$ è un intorno di $\1$, dunque anche 
+$$
+U=d^{-1}\{1\}\cap\Stab d(\Gamma)=d^{-1}\{1\}\cap\bigcap_{g\in d(\Gamma)}\Stab g
+$$
+è un intorno di $\1$ (infatti $d^{-1}\{1\}$ è aperto e contiene $\1$). Ma allora esiste un'estensione di Galois finita $L\sups E$ tale che $\Sigma_L\subs U$, ovvero $d(\Gamma)\subs G^{\Sigma_L}$ e $d(\Sigma_L)=\{1\}$.
+
+Ora è sufficiente mostrare che $d$ induce per proiezione al quoziente un cociclo $\map{c}{\Gamma_L}{G^{\Sigma_L}}$
+$$
+\begin{diagram}
+\Gamma\rar["d"]\dar["p"]&G^{\Sigma_L}\\
+\Gamma_L\arrow[ur,dashed,"c"]
+\end{diagram}
+$$
+ovvero che $d(\gamma)$ dipende solo dalla classe di $\gamma\mod\Sigma_L$. Siano allora $\gamma\in\Gamma\comma\sigma\in\Sigma_L$. Sfruttando la proprietà dei cocicli e le uguaglianze $d(\sigma)=1\comma\presuper{\sigma}d(\gamma)=d(\gamma)$ otteniamo
+$$
+d(\sigma\gamma)=d(\sigma)\presuper{\sigma}d(\gamma)=d(\gamma).
+$$
+Abbiamo così trovato una mappa $\map{c}{\Gamma_L}{G^{\Sigma_L}}$ tale che $c\circ p=d$. Verifichiamo che $c$ è un cociclo. Dati $\gamma\comma\gamma'\in\Gamma_L$, siano $\delta\comma\delta'\in\Gamma$ tali che $p(\delta)=\gamma\comma p(\delta')=\gamma'$. Abbiamo dunque
+$$
+c(\gamma\gamma')=c(p(\delta\delta'))=d(\delta\delta')=d(\delta)\presuper{\delta}d(\delta')=c(\gamma)\presuper{\gamma}c(\gamma').
+$$
+Allora $c$ è un cociclo tale che $\hat{c}=c\circ p=d$.
+\item Dato un cociclo $c$, indichiamo con $[c]$ la sua classe di coomologia. È sufficiente dimostrare che, dati due cocicli $c,d\in Z^1(\Gamma_L,G^{\Sigma_L})$, vale $[c]=[d]$ se e solo se $[\hat{c}]=[\hat{d}]$. Mostriamo le due implicazioni.
+\begin{itemize}
+\item[($\Rightarrow$)] Supponiamo $[c]=[d]$. Allora esiste un $g\in G^{\Sigma_L}$ tale che per ogni $\gamma\in\Gamma_L$ vale $d(\gamma)=gc(\gamma)\presuper{\gamma}g^{-1}$. Dato $\delta\in\Gamma$, abbiamo
+$$
+\hat{d}(\delta)=d(p(\delta))=gc(p(\delta))\presuper{p(\delta)}g^{-1}=g\hat{c}(\delta)\presuper{\delta}g^{-1},
+$$
+dunque $[\hat{c}]=[\hat{d}]$.
+\item[($\Leftarrow$)] Supponiamo $[\hat{c}]=[\hat{d}]$. Allora esiste un $g\in G$ tale che per ogni $\gamma\in\Gamma$ vale $\hat{d}(\gamma)=g\hat{c}(\gamma)\presuper{\gamma}g^{-1}$. Dato $\delta\in\Gamma_L$, sia $\gamma\in\Gamma$ tale che $p(\gamma)=\delta$, abbiamo
+$$
+d(\delta)=\hat{d}(\gamma)=g\hat{c}(\gamma)\presuper{\gamma}g^{-1}=gc(\delta)\presuper{\delta}g^{-1}.
+$$
+Inoltre $g\in G^{\Sigma_L}$: infatti, preso $\sigma\in\Sigma_L$, vale $p(\sigma)=\1$, da cui (sostituendo $\delta\leftarrow\sigma$ nell'ultima uguaglianza) $1=g\presuper{\sigma}g^{-1}$ (abbiamo usato il fatto che i cocicli mandano $\1$ in $1$). Ma allora $[c]=[d]$.
+\end{itemize}
+\item Sia $[d]\in H^1_\cont(\Gamma,G)$ una classe di coomologia, con $d\in Z^1_\cont(\Gamma,G)$. Per il punto (2) esiste un'estensione di Galois finita $L\sups E$ e un cociclo $c\in Z^1(\Gamma_L,G^{\Sigma_L})$ tale che $d=\hat{c}$, da cui $[d]=[\hat{c}]$. Poiché l'inclusione $H^1(\Gamma_L,G^{\Sigma_L})\hookrightarrow H^1_\cont(\Gamma,G)$ è indotta dall'inclusione $Z^1(\Gamma_L,G^{\Sigma_L})\hookrightarrow Z^1_\cont(\Gamma,G)$, $[d]=[\hat{c}]$ è l'immagine dell'elemento $[c]\in H^1(\Gamma_L,G^{\Sigma_L})$.
+\end{enumerate}
+
+\subsection*{Esercizio 6.8}
+\begin{theorem*}[della base normale]
+Sia $F\sups E$ un'estensione di Galois finita con gruppo di Galois $\Gamma$. Allora esiste un $\alpha\in F$ tale che $\{\gamma(\alpha)\}_{\gamma\in\Gamma}$ è una $E$-base di $F$.
+\end{theorem*}
+\begin{proof}
+Supponiamo che $E$ sia infinito. Sia $\Gamma=\{\gamma_1,\ldots,\gamma_n\}$. Indichiamo con $e_j$ il $j$-esimo vettore della base canonica di $E^n$, e con $f_j$ il $j$-esimo vettore della base canonica di $F^n$. Sia $\{x_1,\ldots,x_n\}$ una $E$-base di $F$. Consideriamo il diagramma commutativo
+$$
+\begin{diagram}[row sep=huge,column sep=huge]
+F\rar{\Phi}&\Hom_E(E^n,F)\rar["r","\iso"']&F^n\\
+E^n\rar[hook,"i"]\uar["p","\iso"']&F^n\arrow[ur,"s","\iso"']\uar["q","\iso"']
+\end{diagram}
+$$
+dove le mappe (tutte $E$-lineari) sono definite come segue.
+\begin{itemize}
+\item $\map{i}{E^n}{F^n}$ è l'inclusione: $i(e_j)=f_j$.
+\item $\map{p}{E^n}{F}$ è tale che $p(e_j)=x_j$ (dunque è un isomorfismo).
+\item $\map{\Phi}{F}{\Hom_E(E^n,F)}$ è tale che $\Phi(\beta)=(e_j\mapsto\gamma_j(\beta))$.
+\item $\map{q}{F^n{}\Hom_E(E^n,F)}$ è tale che $q(f_j)=(e_k\mapsto\gamma_k(x_j))$.
+\item $\map{s}{F^n}{F^n}$ è tale che $s(f_j)=\sum_{k=1}^{n}\gamma_k(x_j)f_k$. Per il lemma di Artin, come già visto a lezione, $s$ è un isomorfismo.
+\item $\map{r}{\Hom_E(E^n,F)}{F^n}$ è tale che $r(\varphi)=\sum_{j=1}^{n}\varphi(e_j)f_j$, dunque è un isomorfismo.
+\end{itemize}
+Per commutatività, essendo $r,s$ isomorfismi, anche $q$ è un isomorfismo. Ora, $F$ è un $E$-spazio vettoriale di dimensione $n$, dunque possiamo considerare l'applicazione $\map{\det}{\Hom_E(E^n,F)}{E}$. Poiché $q$ è suriettiva, esiste almeno un $\tilde{w}\in F^n$ tale che $q(\tilde{w})$ è un isomorfismo, ovvero $\det(q(\tilde{w}))\neq 0$. Ma $\det\circ q$ è una funzione polinomiale delle coordinate in $F^n$, e non è il polinomio nullo. Essendo $E$ infinito, segue che esiste almeno un $w\in E^n$ che non annulla il polinomio $\det\circ q\circ i$, ovvero tale che $q(i(w))$ è un isomorfismo. Per commutatività, posto $\alpha=p(w)$, abbiamo che $\Phi(\alpha)$ è un isomorfismo. Dunque
+$$
+\{\Phi(\alpha)(e_j)\}_{j=1}^{n}=\{\gamma_j(\alpha)\}_{j=1}^{n}
+$$
+è una $E$-base di $F$, come richiesto.
+
+Supponiamo ora che $E$ sia finito. Allora $\Gamma=\{\sigma^0,\sigma^1,\ldots,\sigma^{n-1}\}$, dove $\sigma$ è l'automorfismo di Frobenius. Per il lemma di Artin gli elementi di $\Gamma$ sono $E$-linearmente indipendenti, e $\sigma^n=\1$, dunque il polinomio minimo di $\sigma$ su $E$ è $t^n-1$. L'azione di $\sigma$ rende $F$ un $E[t]$-modulo (finitamente generato, in quanto è finitamente generato già come $E$-modulo). Per il teorema di struttura dei moduli finitamente generati su un PID, $F$ si scrive come
+$$
+F\iso\Dirsum_{i=1}^m E[t]/(g_i)
+$$
+con $g_i\in E[t]$ e $g_1|g_2|\ldots|g_m$. Abbiamo che $\Ann(F)=(g_1)$, ma anche $\Ann(F)=(t^n-1)$ (è il polinomio minimo di $\sigma$), dunque (a meno di costanti) $g_1=t^n-1$. Ma $\dim_E E[t]/(t^n-1)=n$, dunque non possono esserci altri fattori e $F\iso E[t]/(t^n-1)$. Sia $\alpha\in F$ l'elemento che corrisponde a 1 in $E[t]/(t^n-1)$. Poiché $\{t^0\cdot1,t^1\cdot1,\ldots,t^{n-1}\cdot1\}$ è una $E$-base di $E[t]/(t^n-1)$, segue che $\{\sigma^0(\alpha),\sigma^1(\alpha),\ldots,\sigma^{n-1}(\alpha)\}$ è una $E$-base di $F$.
+\end{proof}
+Supponiamo inizialmente che l'estensione $F\sups E$ sia finita. Per il teorema della base normale esiste un $\alpha\in F$ tale che
+$$
+F=\Dirsum_{\gamma\in\Gamma}\gamma(\alpha).
+$$
+Segue che la mappa
+\begin{alignat*}{2}
+E[\Gamma]&\longrightarrow F\\
+\gamma&\longmapsto\gamma(\alpha)
+\end{alignat*}
+(estesa per $E$-linearità) è un isomorfismo di $E[\Gamma]$-moduli, e in particolare anche di $\ZZ[\Gamma]$-moduli. Allora $H^1(\Gamma,F)=H^1(\Gamma,E[\Gamma])$. Osserviamo che
+$$
+E[\Gamma]=\ZZ[\Gamma]\tensor_\ZZ E=\Ind_1^\Gamma E,
+$$
+pertanto
+$$
+H^1(\Gamma,E[\Gamma])=H^1(\Gamma,\Ind_1^\Gamma E)=H^1(1,E)=1.
+$$
+Se $F\sups E$ non è finita, basta utilizzare l'Esercizio 6.2 per concludere che
+$$
+H^1(\Gamma,F)=\bigcup_{L\sups E}H^1(\Gamma_L,F^{\Sigma_L})=\bigcup_{L\sups E}H^1(\Gamma_L,L)=1
+$$
+dove l'unione è fatta sulle estensioni di Galois finite.
+
+\subsection*{Esercizio 6.10}
+\begin{enumerate}[\textbf{\arabic{enumi}.}]
+\item Come visto in classe, se
+$
+\begin{diagram}
+x\rar["i"]&x\copr y&y\lar["j",swap]
+\end{diagram}
+$
+è un coprodotto, considerando il morfismo $p$ definito dal diagramma
+$$
+\begin{diagram}
+x\rar["i"]\arrow[rd,"\1",swap]&x\copr y\dar[dashed,"p"]&y\lar["j",swap]\arrow[ld,"0"]\\
+&x
+\end{diagram}
+$$
+e il morfismo $q$ definito analogamente, si ha che
+$
+\begin{diagram}
+x&\lar["p",swap]x\copr y\rar["q"]&y
+\end{diagram}
+$
+è un prodotto. Vale inoltre la relazione $pi+qj=\1$.
+\item $0$ è l'unico oggetto $a$ (a meno di isomorfismo) che soddisfa la seguente proprietà: esistono un oggetto $x$ e un morfismo $j\in\Hom(a,x)$ tale che il diagramma
+$
+\begin{diagram}
+x\rar["\1"]&x&a\lar["j",swap]
+\end{diagram}
+$
+è un coprodotto. Da un lato, $a=0$ soddisfa (con $x$ qualunque e $j=0$). Infatti, sia $f\in\Hom(x,y)$. Allora l'unico morfismo che fa commutare il diagramma
+$$
+\begin{diagram}
+x\rar["\1"]\arrow[rd,"f",swap]&x\dar[dashed]&0\lar["0",swap]\arrow[ld,"0"]\\
+&x
+\end{diagram}
+$$
+è $f$. D'altro canto, sia $a$ un oggetto con la suddetta proprietà, e consideriamo il diagramma
+$$
+\begin{diagram}
+x\rar["\1"]\arrow[rd,"0",swap]&x\dar[dashed]&a\lar["j",swap]\arrow[ld,"\1"]\\
+&a
+\end{diagram}
+$$
+L'unico morfismo che lo fa commutare è $0$, dunque $\1_a=0$. Ma allora $0\in\Hom(a,0)$ è un isomorfismo:
+$$
+\begin{diagram}
+a\ar[loop left,"\1"]\rar[bend left,"0"]&0\ar[loop right,"\1"]\lar[bend left,"0"]
+\end{diagram}
+$$
+\item $F(0)=0$ (qui $0$ indica l'oggetto $0$). Sia infatti $x\in\mathcal{A}$ un oggetto. Come già visto,
+$
+\begin{diagram}
+x\rar["\1"]&x&0\lar["0",swap]
+\end{diagram}
+$
+è un coprodotto. Ma allora anche
+$
+\begin{diagram}
+F(x)\rar["\1"]&F(x)&F(0)\lar["F(0)",swap]
+\end{diagram}
+$
+è un coprodotto. Per il punto \textbf{2.} otteniamo che $F(0)=0$ (a meno di isomorfismo).
+\item $F(0)=0$ (qui $0$ indica il morfismo $0$). Consideriamo infatti il diagramma
+$$
+\begin{diagram}
+x\ar[rr,"0"]\ar[rd,"0"]&&y\\
+&0\ar[ru,"0"]
+\end{diagram}
+$$
+e applichiamo $F$. Per il punto \textbf{3.} otteniamo
+$$
+\begin{diagram}
+F(x)\ar[rr,"F(0)"]\ar[rd,"0"]&&F(y)\\
+&0\ar[ru,"0"]
+\end{diagram}
+$$
+da cui $F(0)=0$.
+\item Utilizzando le notazioni del punto \textbf{1.}
+$
+\begin{diagram}
+F(x)&\lar["F(p)",swap]F(x)\copr F(y)\rar["F(q)"]&F(y)
+\end{diagram}
+$
+è un prodotto; vale inoltre $F(p)F(i)+F(q)F(j)=\1$. Consideriamo infatti il diagramma
+$$
+\begin{diagram}
+x\rar["i"]\arrow[rd,"\1",swap]&x\copr y\dar[dashed,"p"]&y\lar["j",swap]\arrow[ld,"0"]\\
+&x
+\end{diagram}
+$$
+e applichiamo $F$. Sfruttando il fatto che $F$ conserva i coprodotti e il punto \textbf{4.} otteniamo
+$$
+\begin{diagram}
+F(x)\rar["F(i)"]\arrow[rd,"\1",swap]&F(x)\copr F(y)\dar[dashed,"F(p)"]&F(y)\lar["F(j)",swap]\arrow[ld,"0"]\\
+&x
+\end{diagram}
+$$
+Ripetendo la costruzione del punto \textbf{1.}, sapendo che $F(p)$ fa commutare il diagramma sovrastante, si ricava la tesi.
+\item Sia
+$
+\begin{diagram}
+x\rar["i"]&x\copr x&x\lar["j",swap]
+\end{diagram}
+$
+un coprodotto. Allora $F(i+j)=F(i)+F(j)$. Consideriamo infatti il prodotto
+$
+\begin{diagram}
+x&x\copr y\lar["p",swap]\rar["q"]&x
+\end{diagram}
+$
+ottenuto come nel punto \textbf{1.}. Si verifica facilmente che il morfismo $i+j$ fa commutare il diagramma
+$$
+\begin{diagram}
+\phantom{}&x\ar[ld,"\1",swap]\ar[rd,"\1"]\dar[dashed]\\
+x&x\copr x\lar["p"]\rar["q",swap]&x
+\end{diagram}
+$$
+dunque $F(i+j)$ fa commutare il diagramma
+$$
+\begin{diagram}
+\phantom{}&F(x)\ar[ld,"\1",swap]\ar[rd,"\1"]\dar[dashed]\\
+F(x)&F(x)\copr F(x)\lar["F(p)"]\rar["F(q)",swap]&x
+\end{diagram}
+$$
+Ma, grazie al punto \textbf{5.}, anche $F(i)+F(j)$ fa commutare il diagramma, dunque $F(i+j)=F(i)+F(j)$.
+\item $F(\varphi+\psi)=F(\varphi)+F(\psi)$. Sia infatti $\theta$ l'unico morfismo che fa commutare il diagramma
+$$
+\begin{diagram}
+x\rar["i"]\ar[rd,"\varphi",swap]&x\copr x\dar[dashed,"\theta"]&x\lar["j",swap]\ar[ld,"\psi"]\\
+&y
+\end{diagram}
+$$
+Vale $\theta(i+j)=\varphi+\psi$. Applicando $F$ si ottiene
+$$
+F(\varphi+\psi)=F(\theta)F(i+j)=F(\theta)(F(i)+F(j))=F(\varphi)+F(\psi)
+$$
+\end{enumerate}
+
+
+
+\subsection*{Esercizio 7.4}
+Per alleggerire la notazione, scriveremo $\coInd$ in luogo di $\coInd^G_H$.
+
+Ricordiamo che $\coInd N$ è l'$R[G]$-modulo definito come segue. Consideriamo $R[G]$ come $R[H]$-modulo sinistro con la seguente azione di $H$: $h\cdot g=gh^{-1}$ per ogni $h\in H\comma g\in G$. Come $R$-modulo, $\coInd N=\Hom_{R[H]}(R[G],N)$. L'azione di $G$ su $\coInd N$ è data da $g\cdot\varphi=(n\mapsto\varphi(g^{-1}n))$.
+
+Definiamo ora un isomorfismo di $R[G]$-moduli da $\coInd N$ in $\tilde{N}$.
+\begin{alignat*}{1}
+\Phi:\coInd N&\longrightarrow\tilde{N}\\
+\varphi&\longmapsto(g\mapsto\varphi(g))
+\end{alignat*}
+Facciamo le verifiche necessarie.
+\begin{itemize}
+\item\textbf{$\Phi$ è ben definito.} $\Phi(\varphi)$ è una funzione da $G$ in $N$. Siano $g\in G\comma h\in\ H$. Allora
+$$
+\Phi(\varphi)(gh^{-1})=\varphi(gh^{-1})=\varphi(h\cdot g)=h\cdot\varphi(g)
+$$
+per $H$-linearità di $\varphi$. Segue che $\Phi(\varphi)\in\tilde{N}$.
+\item\textbf{$\Phi$ è $R[G]$-lineare.} È immediato verificare che $\Phi$ è $R$-lineare. Sia ora $g\in G$. Allora
+$$
+\Phi(g\cdot\varphi)=\Phi(n\mapsto\varphi(g^{-1}n))=(g_1\mapsto\varphi(g^{-1}g_1)),
+$$
+mentre
+$$
+g\cdot\Phi(\varphi)=(g_1\mapsto\Phi(\varphi)(g^{-1}g_1))=(g_1\mapsto\varphi(g^{-1}g_1))
+$$
+da cui $\Phi(g\cdot\varphi)=g\cdot\Phi(\varphi)$.
+\item\textbf{$\Phi$ è biiettiva.} Esibiamo la funzione inversa.
+\begin{alignat*}{1}
+\Psi:\tilde{N}&\longrightarrow\coInd N\\
+f&\longmapsto(g\mapsto f(g))
+\end{alignat*}
+(si intende che $\Psi(f)$ è poi estesa a tutto $R[G]$ per $R$-linearità). Mostriamo che $\Psi$ è ben definita. $\Psi(f)$ definisce un omomorfismo $R$-lineare da $R[G]$ in $N$; bisogna verificare che è anche $H$-lineare. Siano $g\in G\comma h\in H$. Allora
+$$
+\Psi(f)(h\cdot g)=\Psi(f)(gh^{-1})=f(gh^{-1})=h\cdot f(g)=h\cdot\Psi(f)(g),
+$$
+ovvero $\Psi(f)$ è $R[H]$-lineare. Si vede facilmente che $\Psi\circ\Phi$ e $\Phi\circ\Psi$ sono l'identità, dunque $\Phi$ è biiettiva (non serve verificare che $\Psi$ sia $R[G]$-lineare).
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,66 @@
+\section{Abstract Nonsense II}
+\begin{definition}
+Sia $\mathscr{C}$ una categoria, $X,Y\in\mathscr{C}\comma\varphi\in\Hom(X,Y)$.
+\begin{itemize}
+\item $\varphi$ si dice monomorfismo se per ogni $Z\in\mathscr{C}\comma\alpha,\beta\in\Hom(Z,X)$ tali che $\varphi\circ\alpha=\varphi\circ\beta$ vale $\alpha=\beta$.
+\item $\varphi$ si dice epimorfismo se per ogni $Z\in\mathscr{C}\comma\alpha,\beta\in\Hom(Y,Z)$ tali che $\alpha\circ\varphi=\beta\circ\varphi$ vale $\alpha=\beta$.
+\end{itemize}
+\end{definition}
+\begin{definition}
+Sia $\mathscr{C}$ una categoria, $A$ un anello. $\mathscr{C}$ si dice $A$-lineare se:
+\begin{itemize}
+\item per ogni $X,Y\in\mathscr{C}$, $\Hom(X,Y)$ è un $A$-modulo;
+\item $\map{\circ}{\Hom(Y,Z)\times\Hom(X,Y)}{\Hom(X,Z)}$ è $A$-bilineare;
+\item esiste $0\in\mathscr{C}$ tale che per ogni $X\in\mathscr{C}$ vale $\Hom(X,0)=\Hom(0,X)=0$;
+\end{itemize}
+$\mathscr{C}$ si dice $A$-additiva se per ogni $X,Y\in\mathscr{C}$ esiste il coprodotto $X\copr Y$.
+\end{definition}
+\begin{proposition}
+Sia $\mathscr{C}$ una categoria $A$-lineare, $X,Y\in\mathscr{C}$. Allora $X\copr Y=X\pr Y$
+\end{proposition}
+\begin{definition}
+Sia $\mathscr{C}$ una categoria $A$-lineare, $X,Y\in\mathscr{C}\comma\varphi\in\Hom(X,Y)$. Si chiama nucleo di $\varphi$ (e si indica con $\ker\varphi$) un oggetto $Z\in\mathscr{C}$ dotato di un morfismo $i\in\Hom(Z,X)$ con le seguenti proprietà:
+\begin{enumerate}
+\item $\varphi\circ i=0$;
+\item per ogni oggetto $Z'\in\mathscr{C}$ dotato di un morfismo $i'\in\Hom(Z',X)$ tale che $\varphi\circ i'=0$ esiste un unico morfismo $j\in\Hom(Z',Z)$ che fa commutare il diagramma
+$$
+\begin{diagram}
+Z\rar["i"]&X\rar["\varphi"]&Y\\
+&Z'\uar["i'"]\arrow[lu,"\exists!j"]
+\end{diagram}
+$$
+\end{enumerate}
+\end{definition}
+\begin{definition}
+Sia $\mathscr{C}$ una categoria $A$-lineare, $X,Y\in\mathscr{C}\comma\varphi\in\Hom(X,Y)$. Si chiama conucleo di $\varphi$ (e si indica con $\coker\varphi$) un oggetto $W\in\mathscr{C}$ dotato di un morfismo $p\in\Hom(Y,W)$ con le seguenti proprietà:
+\begin{enumerate}
+\item $p\circ\varphi=0$;
+\item per ogni oggetto $W'\in\mathscr{C}$ dotato di un morfismo $p'\in\Hom(Y,W')$ tale che $p'\circ\varphi=0$ esiste un unico morfismo $q\in\Hom(W,W')$ che fa commutare il diagramma
+$$
+\begin{diagram}
+X\rar["\varphi"]&Y\rar["p"]\dar["p'"]&W\\
+&W'\arrow[ru,"\exists!q"]
+\end{diagram}
+$$
+\end{enumerate}
+\end{definition}
+\begin{definition}
+Una categoria $\ZZ$-additiva $\mathscr{C}$ si dice preabeliana se ogni morfismo ammette nucleo e conucleo.
+\end{definition}
+\begin{proposition}
+Sia $\mathscr{C}$ una categoria preabeliana, $X,Y\in\mathscr{C}\comma\varphi\in\Hom(X,Y)$. Allora esiste un unico morfismo $\bar\varphi$ che fa commutare il diagramma
+$$
+\begin{diagram}
+\ker\varphi\rar["i"]&X\rar["\varphi"]\dar&Y\rar["p"]&\coker\varphi\\
+&\coker i\rar["\exists!\bar\varphi"]&\ker p\uar
+\end{diagram}
+$$
+\end{proposition}
+\begin{definition}
+Una categoria preabeliana $\mathscr{C}$ si dice abeliana se per ogni morfismo $\varphi$ il morfismo canonico $\bar\varphi$ è un isomorfismo. In tal caso si chiama immagine di $\varphi$ (e si indica con $\im\varphi$) l'oggetto $\coker i$ (o equivalentemente $\ker p$).
+\end{definition}
+\begin{proposition}
+Sia $\mathscr{C}$ una categoria abeliana, $X,Y\in\mathscr{C}\comma\varphi\in\Hom(X,Y)$. Allora $\varphi$ è un isomorfismo se e solo se $\ker\varphi=\coker\varphi=0$.
+\end{proposition}
+
+
