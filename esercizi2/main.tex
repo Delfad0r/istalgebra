@@ -14,6 +14,8 @@
 \rhead{Filippo Gianni Baroni}
 
 \newcommand*{\cont}{\ensuremath{\text{cont}}}
+\newcommand*{\vectwo}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand*{\mattwo}[4]{\begin{pmatrix}#1&#2\\#3&#4\end{pmatrix}}
 
 \begin{document}
 \subsection*{Esercizio 6.2}
@@ -85,6 +87,30 @@ Inoltre $g\in G^{\Sigma_L}$: infatti, preso $\sigma\in\Sigma_L$, vale $p(\sigma)
 \end{enumerate}
 
 \subsection*{Esercizio 6.8}
+Sia $X=F^2\setminus\{0\}\comma G=GL_2(F)$. $G$ agisce transitivamente su $X$, e $\Gamma$ agisce su $G$ e $X$ compatibilmente (elemento per elemento). Inoltre le azioni di $\Gamma$ su $G$ e su $X$ sono continue: presa una matrice $A\in G$, se $L\sups E$ è un'estensione finita di Galois che contiene tutte le entrate di $A$, allora $A\in G^{\Sigma_L}$; un discorso analogo vale per i vettori di $X$.
+
+Sia $x_0=\vectwo{1}{0}\in X^\Gamma\comma H=\Stab_G(x_0)$. È immediato verificare che
+$$
+H=\left\{\mattwo{1}{a}{0}{b}:a\in F,b\in F^*\right\}.
+$$
+Per l'Esercizio 6.5, poiché $H^1(\Gamma,G)=1$, otteniamo che le $G^\Gamma$-orbite di $X^\Gamma$ sono in corrispondenza biunivoca con $H^1(\Gamma,H)$. Ma $G^\Gamma=GL_2(E)$ agisce transitivamente su $X^\Gamma=E^2\setminus\{0\}$, pertanto $H^1(\Gamma,H)=1$. Consideriamo la successione esatta di gruppi
+$$
+\begin{diagram}
+1\rar&F\rar["\varphi"]&H\rar["\psi"]&F^*\rar&1
+\end{diagram}
+$$
+dove
+\begin{align*}
+\varphi(a)=\mattwo{1}{a}{0}{1}&&\psi\mattwo{1}{a}{0}{b}=b.
+\end{align*}
+La successione esatta lunga corrispondente comincia come segue.
+$$
+\begin{diagram}
+1\rar&E\rar&H^\Gamma\rar&E^*\rar&H^1(\Gamma,F)\rar&H^1(\Gamma,H)
+\end{diagram}
+$$
+La mappa $H^\Gamma\rightarrow E^*$ è evidentemente suriettiva, e inoltre $H^1(\Gamma,H)=1$, da cui segue $H^1(\Gamma,F)=1$.
+\subsection*{Esercizio 6.8 - Soluzione 2}
 \begin{theorem*}[della base normale]
 Sia $F\sups E$ un'estensione di Galois finita con gruppo di Galois $\Gamma$. Allora esiste un $\alpha\in F$ tale che $\{\gamma(\alpha)\}_{\gamma\in\Gamma}$ è una $E$-base di $F$.
 \end{theorem*}
