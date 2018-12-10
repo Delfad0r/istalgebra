@@ -1,0 +1,260 @@
+\documentclass[a4paper]{article}
+
+\usepackage{mystyle}
+\usepackage{subcaption}
+\usepackage{titlesec}
+
+\newcommand{\subsectionbreak}{\clearpage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\today}
+\chead{\textbf{Esercizi III}}
+\rhead{Filippo Gianni Baroni}
+
+\newcommand*{\HH}{\mathds{H}}
+\newcommand*{\CC}{\mathds{C}}
+\newcommand*{\RR}{\mathds{R}}
+\newcommand*{\Mat}{\text{Mat}_{2\times2}}
+\newcommand*{\mattwo}[4]{\begin{pmatrix}#1&#2\\#3&#4\end{pmatrix}}
+
+\begin{document}
+\subsection*{Esercizio 8.3}
+Ricordiamo la costruzione dell'Esercizio 7.4, che riportiamo qui nel caso particolare che utilizzeremo. Per ogni gruppo $G$ e $G$-modulo $A$, $\coInd_1^GA$ è il $G$-modulo delle funzioni da $G$ in $A$, dove l'azione di $G$ è data da $g\cdot f=(x\mapsto f(g^{-1}x))$.
+
+Ci proponiamo di dimostrare che
+$$
+\coInd_1^GA\iso\coInd_1^H\coInd_1^{G/H}A
+$$
+come $H$-moduli. Dato $g\in G$, indichiamo con $\clos{g}\in G/H$ la proiezione al quoziente. Sia $\map{r}{G/H}{G}$ una funzione tale che $\clos{r_{\clos{g}}}=\clos{g}$. Consideriamo le due mappe
+\begin{align*}
+\Phi:\coInd_1^GA&\longrightarrow\coInd_1^H\coInd_1^{G/H}A\\
+f&\longmapsto(h\mapsto(\clos{g}\mapsto f(hr_{\clos{g}})))
+\end{align*}
+e
+\begin{align*}
+\Psi:\coInd_1^H\coInd_1^{G/H}A&\longrightarrow\coInd_1^GA\\
+F&\longmapsto(g\mapsto F(gr_{\clos{g}}^{-1})(\clos{g}))
+\end{align*}
+Svolgiamo le verifiche necessarie.
+\begin{itemize}
+\item \textbf{$\Phi$ è un omomorfismo di $H$-moduli.} Siano $k\in H$, $f\in\coInd_1^GA$. Allora
+\begin{align*}
+k\cdot\Phi(f)&=(h\mapsto\Phi(f)(k^{-1}h)\\
+&=(h\mapsto(\clos{g}\mapsto f(k^{-1}hr_{\clos{g}}))\\
+&=(h\mapsto(\clos{g}\mapsto (k\cdot f)(hr_{\clos{g}}))\\
+&=\Phi(k\cdot f).
+\end{align*}
+\item \textbf{$\Psi\circ\Phi=\1$.} Sia $f\in\coInd_1^GA$. Allora
+\begin{align*}
+\Psi(\Phi(f))&=(g\mapsto(\Phi(f)(gr_{\clos{g}}^{-1})(\clos{g})))\\
+&=(g\mapsto f(gr_{\clos{g}}^{-1}r_{\clos{g}}))\\
+&=f
+\end{align*}
+\item \textbf{$\Phi\circ\Psi=\1$.} Sia $F\in\coInd_1^H\coInd_1^{G/H}A$. Allora
+\begin{align*}
+\Phi(\Psi(F))&=(h\mapsto(\clos{g}\mapsto\Psi(f)(hr_{\clos{g}})))\\
+&=(h\mapsto(\clos{g}\mapsto F(hr_{\clos{g}}r_{\clos{g}}^{-1})(\bar{g})))\\
+&=(h\mapsto F(h))\\
+&=F.
+\end{align*}
+\end{itemize}
+Dunque $\Phi$ è un isomorfismo di $H$-moduli.
+\begin{enumerate}[(1)]
+\item Abbiamo
+$$
+H^i(H,B)=H^i(H,\coInd_1^H\coInd_1^{G/H}A)=H^i(1,\coInd_1^{G/H}A)=0.
+$$
+\item Abbiamo
+$$
+B^H=H^0(H,B)=H^0(1,\coInd_1^{G/H}A)=\coInd_1^{G/H}A,
+$$
+da cui
+$$
+H^i(G/H,B^H)=H^i(G/H,\coInd_1^{G/H}A)=0.
+$$
+\end{enumerate}
+
+\subsection*{Esercizio 8.6}
+Sia $E=\CC((t))$, $F$ la chiusura algebrica di $E$, $\Gamma=\Gal(F/E)$, $\mathcal{A}$ il gruppo di Brauer di $E$. Sappiamo che $\mathcal{A}\iso H^2(\Gamma,F^*)$. Per l'Esercizio 6.2, $H^2(\Gamma, F^*)=\bigcup H^2(\Gamma_L,L^*)$, dove l'unione è fatta sulle estensioni finite di Galois $L\sups E$. Per l'Esercizio 8.5, ogni tale estensione è della forma $\CC((s))$ con $s^n=t$ per un qualche $n$. Osserviamo che $\CC((s))=\CC((t))[s]$. Il polinomio minimo di $s$ è $X^n-t$, dunque i coniugati di $s$ sono $\{\omega^ks\}_{k=1,\ldots,n}$, dove $\omega$ è una radice $n$-esima primitiva di 1. Il gruppo di Galois $\Gamma_L$ è pertanto $\langle\sigma\rangle\iso\ZZ/(n)$, dove $\sigma$ è l'automorfismo di $\CC((s))$ che manda $f(s)$ in $f(\omega s)$. Poiché $\Gamma_L$ è ciclico di ordine finito, sappiamo che $H^2(\Gamma_L,L^*)=(L^*)^{\Gamma_L}/N_L(L^*)=E^*/N_L(L^*)$, dove $\map{N_L}{L^*}{E^*}$ è l'omomorfismo.
+$$
+N_L(f)=\prod_{\gamma\in\Gamma_L}\gamma(f)=\prod_{k=1}^{n}f(\omega^ks).
+$$
+Dimostreremo che $N_L(L^*)=E^*$, dunque $H^2(\Gamma_L,L^*)=0$ per ogni $L\sups E$ finita di Galois, da cui $H^2(\Gamma,F^*)=0$.
+
+\begin{lemma*}
+Sia $f\in\CC[[t]]^*$. Allora esiste $g\in\CC((s))$ tale che $g^n=tf$.
+\end{lemma*}
+\begin{proof}
+Consideriamo il polinomio $\mu(X)=X^n-tf\in\CC[[t]][X]$. Per il criterio di Eisenstein applicato al primo $(t)$, $\mu$ è irriducibile su $\CC[[t]]$, dunque per il lemma di Gauss è irriducibile anche su $\CC((t))$. Consideriamo il campo di spezzamento $\CC((t))[X]/(\mu)$: si tratta di un'estensione di Galois di $\CC((t))$ di grado $n$, dunque per l'Esercizio 8.5 è $\CC((\tilde{s}))$, dove $\tilde{s}$ è una radice di $X^n-t$. Poiché $\CC((s))$ è un'estensione normale di $\CC((t))$, segue che $\CC((\tilde{s}))\subs\CC((s))$, dunque $\CC((s))$ contiene una radice $n$-esima di $tf$ (tale radice esiste sicuramente in $\CC((\tilde{s}))$).
+\end{proof}
+
+Sia ora $f\in\CC((t))^*$. Esistono $\tilde{f}\in\CC[[t]]^*$, $d\in\ZZ$ tali che $f=t^d\tilde{f}$. Sia $\tilde{g}\in\CC((s))$ tale che $\tilde{g}^n=tf$. Per moltiplicatività della norma vale
+$$
+N_L(\tilde{g})^n=N_L(\tilde{g}^n)=N_L(t\tilde{f})=t^n\tilde{f}^n,
+$$
+da cui $N_L(\tilde{g})=\omega^kt\tilde{f}$ per un qualche intero $k$. Sia $\zeta$ una radice $n$-esima di $\omega^{-k}$, e poniamo $g=\zeta s^{d-1}\tilde{g}$. Otteniamo
+$$
+N_L(g)=\zeta^ns^{(d-1)n}N_L(\tilde{g})=t^d\tilde{f}=f,
+$$
+da cui deduciamo che la norma $N_L$ è suriettiva.
+
+\begin{comment}
+\begin{definition}
+Sia $A$ un gruppo abeliano. Si dice norma su $A$ una funzione $\map{\norm{\cdot}}{A}{\RR}$ con le seguenti proprietà:
+\begin{itemize}
+\item $\norm{x}\ge0$ per ogni $x\in A$;
+\item $\norm{x}=0$ se e solo se $x=0$;
+\item $\norm{x+y}\le\norm{x}+\norm{y}$ per ogni $x,y\in A$.
+\end{itemize}
+\end{definition}
+Ogni norma su $A$ induce una distanza su $A$ stesso, definita come $d(x,y)=\norm{x-y}$.
+\begin{proposition}\thlabel{linear-map-normed-groups}
+Siano $A,B$ gruppi abeliani normati, e sia $\map{f}{A}{B}$ un omomorfismo per cui esiste una costante $c\ge0$ tale che $\norm{f(x)}\le c\norm{x}$ per ogni $x\in A$. Allora $f$ è continua.
+\end{proposition}
+\begin{proof}
+È evidente che $f$ è lipschitziana: dati $x,y\in A$ vale
+$$
+\norm{f(x)-f(y)}=\norm{f(x-y)}\le c\norm{x-y}.
+$$
+\end{proof}
+\begin{proposition}\thlabel{bilinear-map-normed-groups}
+Siano $A,B,C$ gruppi abeliani normati, e sia $\map{f}{A\times B}{C}$ una mappa $\ZZ$-bilineare per cui esiste una costante $c\ge 0$ tale che
+$$
+\norm{f(x,y)}\le c\norm{f(x)}\norm{f(y)}
+$$
+per ogni $x\in A,y\in B$. Allora $f$ è continua.
+\end{proposition}
+\begin{proof}
+Consideriamo su $A\times B$ la distanza prodotto
+$$
+d((x_1,y_1),(x_2,y_2))=\norm{x_1-x_2}+\norm{y_1-y_2}
+$$
+che induce la topologia prodotto. Mostriamo che $f$ è lipschitziana sugli insiemi $K_a=\{(x,y)\in A\times B:\norm{x}\le a,\norm{y}\le a\}$ (da cui segue che $f$ è continua ovunque). Siano $(x_1,y_1),(x_2,y_2)\in K_a$. Allora
+\begin{align*}
+\norm{f(x_1,y_1)-f(x_2,y_2)}&\le\norm{f(x_1,y_1)-f(x_2,y_1)}+\norm{f(x_2,y_1)-f(x_2,y_2)}\\
+&=\norm{f(x_1-x_2,y_1)}+\norm{f(x_2,y_1-y_2)}\\
+&\le c(\norm{x_1-x_2}\norm{y_1}+\norm{x_2}\norm{y_1-y_2})\\
+&\le ca(\norm{x_1-x_2}+\norm{y_1-y_2})\\
+&=ca\cdot d((x_1,y_2),(x_2,y_2)).
+\end{align*}
+\end{proof}
+\begin{definition}
+Dato $f\in\CC((s))$, se $f(s)=\sum_{k=-\infty}^{+\infty}a_ks^k$, si pone
+$$
+\deg f=\min\{k\in\ZZ:a_k\neq 0\}
+$$
+(per convenzione, $\deg 0=+\infty$).
+\end{definition}
+\begin{proposition}\thlabel{degree-properties}
+Siano $f,g\in\CC((s))$.
+\begin{itemize}
+\item $\deg(f+g)\ge\min\{\deg f,\deg g\}$.
+\item $\deg(fg)=\deg f+\deg g$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+La verifica di entrambe le proprietà è del tutto immediata.
+\end{proof}
+\begin{proposition}
+La funzione 
+\begin{align*}
+\norm{\cdot}:\CC((s))&\longrightarrow\RR\\
+f&\longmapsto e^{-\deg f}
+\end{align*}
+definisce una norma sul gruppo abeliano $\CC((s))$ (con la convenzione $e^{-\infty}=0$). Inoltre $\norm{fg}=\norm{f}\norm{g}$.
+\end{proposition}
+\begin{proof}
+Segue immediatamente dalla \thref{degree-properties}.
+\end{proof}
+
+\begin{proposition}
+\leavevmode
+\begin{enumerate}
+\item $\CC[[s]]$ è completo.
+\item $\CC[s]$ è denso in $\CC[[s]]$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item Sia $(f_k)_k$ una successione di Cauchy in $\CC[[s]]$. Per definizione, fissato $m\in\mathbb{Z}$, esiste un $k$ tale che per ogni $h\ge k$ vale $\norm{f_h-f_k}<e^{-m}$. Ciò implica che definitivamente l'$m$-esimo coefficiente di $f_h$ è uguale a quello di $f_k$, ovvero non dipende da $h$. Sia dunque $f\in\CC[[s]]$ la serie formale tale che definitivamente in $h$ l'$m$-esimo coefficiente di $f-f_h$ è 0. Ma allora $\norm{f-f_h}$ tende a 0, ovvero $f_h$ tende a $f$.
+\item Sia $f=\sum_{i=0}^{+\infty}a_is^i\in\CC[[s]]$, e sia $f_k=\sum_{i=0}^{k}a_is^i\in\CC[s]$. Allora $\deg(f-f_k)>k$, da cui $\norm{f-f_k}$ tende a 0.
+\end{enumerate}
+\end{proof}
+Consideriamo su $\CC((t))$ la norma indotta dal grado in $t$, e non quella indotta dall'inclusione din $\CC((s))$.
+\begin{proposition}
+Sia $f\in\CC[t]$. Allora esiste un polinomio $T(f)\in\CC[s]$ tale che $N_L(T(f))=f$ e $\norm{f}=\norm{T(f)}$.
+\end{proposition}
+\begin{proof}
+Se $f=0$ allora $T(f)=0$ soddisfa. Altrimenti, sia $f(t)=a(t-\alpha_1)\cdots(t-\alpha_r)$. Siano $b,\beta_1,\ldots,\beta_r$ radici $n$-esime rispettivamente di $a,\alpha_1,\ldots,\alpha_r$. Poniamo $T(f)(s)=(-1)^{n+r}b(s-\beta_1)\cdots(s-\beta_r)$. Calcoliamo ora
+\begin{align*}
+N_L(T(f)(s))&=(-1)^{n+r}\prod_{k=1}^nb\prod_{j=1}^r(\omega^ks-\beta_j)\\
+&=b^n\prod_{j=1}^r\left(-\prod_{k=1}^n(\beta_j-\omega^ks)\right)\\
+&=a\prod_{j=1}^r(-(\beta_j^n-s^n))\\
+&=a\prod_{j=1}^r(t-\alpha_j)\\
+&=f(t).
+\end{align*}
+Inoltre $\deg f$ è il numero di radici $\alpha_j$ pari a 0, e $\deg T(f)$ è il numero di radici $\beta_j$ pari a 0; questi due numeri sono ovviamente uguali (essendo $\beta_j$ una radice $n$-esima di $\alpha_j$). Segue che $\norm{f}=\norm{T(f)}$.
+\end{proof}
+Dato un gruppo abeliano normato $A$ e un numero reale $a$, poniamo
+$$
+B_a=\{f\in\CC[[s]]:\norm{f}\le a\}
+$$
+\begin{proposition}
+La funzione $\map{N_L}{B_a(\CC[[s]])}{\CC[[t]]}$ è uniformemente continua.
+\end{proposition}
+\begin{proof}
+Consideriamo su $\CC[[s]]^n$ la norma prodotto 
+$$
+\norm{(f_1,\ldots,f_n)}=\norm{f_1}+\ldots+\norm{f_n}
+$$
+(che induce la distanza prodotto). Scriviamo $N_L$ come composizione di due funzioni.
+\begin{itemize}
+\item $\map{\theta}{B_a(\CC[[s]])}{\CC[[s]]^n}$ è definita da $\theta(f)=(f(\omega^ks))_{k=1\ldots n}$. È evidente che $\theta$ è $\ZZ$-lineare. Inoltre $\norm{f(\omega^ks)}=\norm{f}$, dunque $\norm{\theta(f)}=n\norm{f}$, ovvero $\theta$ è lipschitziana di costante $n$ e manda $B_a(\CC[[s]])$ in $B_{na}(\CC[[s]]^n)$.
+\item $\map{\eta}{B_{na}(\CC[[s]]^n)}{\CC[[s]]}$ è definita da $\eta(f_1,\ldots,f_n)=f_1\cdots f_n$. È evidente che $\eta$ è $\ZZ$-multilineare. Inoltre vale $\norm{\eta(f_1,\ldots,f_n)}=\norm{f_1}\cdots\norm{f_n}$. Ma allora
+\begin{align*}
+\norm{\eta(f_1,\ldots,f_n)-\eta(g_1,\ldots,g_n)}\le&\norm{\eta(f_1-g_1,f_2,\ldots,f_n)}\\
+-&\norm{\eta(g_1,f_2-g_2,\ldots,f_n)}\\
+-&\ldots\\
+-&\norm{\eta(g_1,g_2,\ldots,f_n-g_n)}\\
+\le&(na)^{n-1}\norm{(f_1,\ldots,f_n)-(g_1,\ldots,g_n)}
+\end{align*}
+ovvero $\eta$ è lipschitziana di costante $(na)^{n-1}$.
+\end{itemize}
+Naturalmente $N_L=\eta\circ\theta$, dunque $N_L$ è lipschitziana (di una certa costante $c$) vista come funzione da $\CC[[s]]$ in $\CC[[s]]$. Indicando con $\norm{\cdot}_t$ la norma su $\CC[[t]]$ e con $\norm{\cdot}_s$ la norma su $\CC[[s]]$, osservando che $\norm{\cdot}_t=\norm{\cdot}_s^{1/n}$, otteniamo che
+$$
+\norm{N_L(f)-N_L(g)}_t=\norm{N_L(f)-N_L(g)}_s^{1/n}0\le(c\norm{f-g}_s)^{1/n}
+$$
+dunque $N_L$ (ristretta alla palla $B_a(\CC[[s]])$) è $\frac{1}{n}$-h\"olderiana, perciò uniformemente continua.
+\end{proof}
+\end{comment}
+
+
+
+\subsection*{Esercizio 8.8}
+Supponiamo che $a$ sia un quadrato in $E$, diciamo $a=c^2$. Consideriamo l'applicazione
+\begin{align*}
+\Phi:\HH(a,b)&\longrightarrow\Mat(E)\\
+1&\longmapsto\mattwo{1}{0}{0}{1}\\
+i&\longmapsto\mattwo{c}{0}{0}{-c}\\
+j&\longmapsto\mattwo{0}{1}{b}{0}\\
+k&\longmapsto\mattwo{0}{c}{-bc}{0}
+\end{align*}
+estesa a $\HH(a,b)$ per $E$-linearità. Con molta pazienza si verifica che $\Phi$ è un omomorfismo di $E$-algebre.
+\begin{itemize}
+\item \textbf{$\Phi$ è iniettiva.} Sia $x+yi+zj+wk\in\ker\Phi$ con $x,y,z,w\in E$. Abbiamo
+$$
+\Phi(x+yi+zj+wk)=\mattwo{x+cy}{z+cw}{b(z-cw)}{x-cy}=\mattwo{0}{0}{0}{0},
+$$
+da cui $x=y=z=w=0$ (poiché $E$ ha caratteristica diversa da 2).
+\item \textbf{$\Phi$ è suriettiva.} Sia $\mattwo{x}{y}{z}{w}\in\Mat(E)$. Allora
+$$
+\Phi\left(\frac{x+w}{2}+\frac{x-w}{2c}i+\frac{by+z}{2b}j+\frac{by-z}{2bc}k\right)=\mattwo{x}{y}{z}{w}.
+$$
+\end{itemize}
+Abbiamo dunque dimostrato che $\HH(a,b)\iso\Mat(E)$ se $a$ è un quadrato in $E$.
+
+Siano ora $a,b\in E$ qualunque. Sia $F$ un'estensione finita di $E$ che contiene una radice quadrata di $a$ (ad esempio il campo di spezzamento del polinomio $t^2-a$). Per quanto appena dimostrato, $F\tensor_E\HH(a,b)\iso\Mat(F)$ è un'algebra semplice. Supponiamo per assurdo che $\HH(a,b)$ non sia semplice. Sia $I\ideal\HH(a,b)$ un ideale bilatero proprio non nullo. Allora $F\tensor_E I$ è un ideale bilatero proprio (non contiene 1) non nullo di $F\tensor\HH(a,b)$, assurdo.
+\end{document}
