@@ -23,11 +23,13 @@
 \subsection*{Esercizio 8.3}
 Ricordiamo la costruzione dell'Esercizio 7.4, che riportiamo qui nel caso particolare che utilizzeremo. Per ogni gruppo $G$ e $G$-modulo $A$, $\coInd_1^GA$ è il $G$-modulo delle funzioni da $G$ in $A$, dove l'azione di $G$ è data da $g\cdot f=(x\mapsto f(g^{-1}x))$.
 
-Ci proponiamo di dimostrare che
+Dato $g\in G$, indichiamo con $\clos{g}\in G/H$ la proiezione al quoziente. Sia $\map{r}{G/H}{G}$ una funzione tale che $\clos{r_{\clos{g}}}=\clos{g}$.
+\begin{enumerate}[(1)]
+\item Ci proponiamo di dimostrare che
 $$
 \coInd_1^GA\iso\coInd_1^H\coInd_1^{G/H}A
 $$
-come $H$-moduli. Dato $g\in G$, indichiamo con $\clos{g}\in G/H$ la proiezione al quoziente. Sia $\map{r}{G/H}{G}$ una funzione tale che $\clos{r_{\clos{g}}}=\clos{g}$. Consideriamo le due mappe
+come $H$-moduli. Consideriamo le due mappe
 \begin{align*}
 \Phi:\coInd_1^GA&\longrightarrow\coInd_1^H\coInd_1^{G/H}A\\
 f&\longmapsto(h\mapsto(\clos{g}\mapsto f(hr_{\clos{g}})))
@@ -60,17 +62,45 @@ k\cdot\Phi(f)&=(h\mapsto\Phi(f)(k^{-1}h)\\
 &=F.
 \end{align*}
 \end{itemize}
-Dunque $\Phi$ è un isomorfismo di $H$-moduli.
-\begin{enumerate}[(1)]
-\item Abbiamo
+Dunque $\Phi$ è un isomorfismo di $H$-moduli. Possiamo così dedurre
 $$
 H^i(H,B)=H^i(H,\coInd_1^H\coInd_1^{G/H}A)=H^i(1,\coInd_1^{G/H}A)=0.
 $$
-\item Abbiamo
+\item Ci proponiamo di dimostrare che
 $$
-B^H=H^0(H,B)=H^0(1,\coInd_1^{G/H}A)=\coInd_1^{G/H}A,
+B^H\iso\coInd_1^{G/H}A
 $$
-da cui
+come $G/H$-moduli. Notiamo innanzitutto che $B^H$ è un $G/H$-modulo, con l'azione definita da $(\clos{g}\cdot f)(x)=f(g^{-1}x)$; l'azione è ben definita poiché due rappresentanti della stessa classe di equivalenza differiscono per un elemento di $H$, e $f$ è $H$-invariante. Consideriamo le due mappe
+\begin{align*}
+\Phi:B^H&\longrightarrow\coInd_1^{G/H}A\\
+f&\longmapsto(\clos{g}\mapsto f(r_{\clos{g}}))
+\end{align*}
+e
+\begin{align*}
+\Psi:\coInd_1^{G/H}A&\longrightarrow B^H\\
+F&\longmapsto(g\mapsto F(\clos{g}))
+\end{align*}
+Svolgiamo le verifiche necessarie.
+\begin{itemize}
+\item \textbf{$\Psi$ è ben definita.} Dobbiamo mostrare che $\Psi(F)$ è $H$-invariante. Sia $h\in H$. Allora
+$$
+h\cdot\Psi(F)=(g\mapsto F(\clos{h^{-1}g}))=(g\mapsto F(\clos{g}))=\Psi(F).
+$$
+\item \textbf{$\Psi$ è un omomorfismo di $G/H$-moduli.} Sia $\clos{g}\in G/H$, $F\in\coInd_1^{G/H}$. Allora
+$$
+\clos{g}\cdot\Psi(F)=(x\mapsto F(\clos{g^{-1}x}))=\Psi(\clos{g}\cdot F).
+$$
+\item \textbf{$\Psi\circ\Phi=\1$.} Sia $f\in B^H$. Allora
+$$
+\Psi(\Phi(f))=(g\mapsto\Phi(f)(\clos{g}))=(g\mapsto f(r_{\clos{g}}))=(g\mapsto f(g))=f
+$$
+poiché $r_{\clos{g}}$ e $g$ differiscono per un elemento di $H$ e $f$ è $H$-invariante.
+\item \textbf{$\Phi\circ\Phi=\1$.} Sia $F\in\coInd_1^{G/H}$. Allora
+$$
+\Phi(\Psi(F))=(\clos{g}\mapsto\Psi(F)(r_{\clos{g}}))=(\clos{g}\mapsto F(\clos{g}))=F.
+$$
+\end{itemize}
+Dunque $\Phi$ è un isomorfismo di $G/H$-moduli. Possiamo così dedurre
 $$
 H^i(G/H,B^H)=H^i(G/H,\coInd_1^{G/H}A)=0.
 $$
@@ -87,7 +117,7 @@ Dimostreremo che $N_L(L^*)=E^*$, dunque $H^2(\Gamma_L,L^*)=0$ per ogni $L\sups E
 Sia $f\in\CC[[t]]^*$. Allora esiste $g\in\CC((s))$ tale che $g^n=tf$.
 \end{lemma*}
 \begin{proof}
-Consideriamo il polinomio $\mu(X)=X^n-tf\in\CC[[t]][X]$. Per il criterio di Eisenstein applicato al primo $(t)$, $\mu$ è irriducibile su $\CC[[t]]$, dunque per il lemma di Gauss è irriducibile anche su $\CC((t))$. Consideriamo il campo di spezzamento $\CC((t))[X]/(\mu)$: si tratta di un'estensione di Galois di $\CC((t))$ di grado $n$, dunque per l'Esercizio 8.5 è $\CC((\tilde{s}))$, dove $\tilde{s}$ è una radice di $X^n-t$. Poiché $\CC((s))$ è un'estensione normale di $\CC((t))$, segue che $\CC((\tilde{s}))\subs\CC((s))$, dunque $\CC((s))$ contiene una radice $n$-esima di $tf$ (tale radice esiste sicuramente in $\CC((\tilde{s}))$).
+Consideriamo il polinomio $\mu(X)=X^n-tf\in\CC[[t]][X]$. Per il criterio di Eisenstein applicato al primo $(t)$, $\mu$ è irriducibile su $\CC[[t]]$, dunque per il lemma di Gauss è irriducibile anche su $\CC((t))$. Consideriamo il campo di spezzamento $\CC((t))[X]/(\mu)$: si tratta di un'estensione di Galois di $\CC((t))$ di grado $n$, dunque per l'Esercizio 8.5 è $\CC((\tilde{s}))$, dove $\tilde{s}$ è una radice di $X^n-t$. Poiché $\CC((s))$ è un'estensione normale di $\CC((t))$ e $X^n-t$ è il polinomio minimo di $s$, segue che $\CC((\tilde{s}))=\CC((s))$, dunque $\CC((s))$ contiene una radice $n$-esima di $tf$ (tale radice esiste per definizione in $\CC((\tilde{s}))$).
 \end{proof}
 
 Sia ora $f\in\CC((t))^*$. Esistono $\tilde{f}\in\CC[[t]]^*$, $d\in\ZZ$ tali che $f=t^d\tilde{f}$. Sia $\tilde{g}\in\CC((s))$ tale che $\tilde{g}^n=tf$. Per moltiplicatività della norma vale
@@ -256,5 +286,5 @@ $$
 \end{itemize}
 Abbiamo dunque dimostrato che $\HH(a,b)\iso\Mat(E)$ se $a$ è un quadrato in $E$.
 
-Siano ora $a,b\in E$ qualunque. Sia $F$ un'estensione finita di $E$ che contiene una radice quadrata di $a$ (ad esempio il campo di spezzamento del polinomio $t^2-a$). Per quanto appena dimostrato, $F\tensor_E\HH(a,b)\iso\Mat(F)$ è un'algebra semplice. Supponiamo per assurdo che $\HH(a,b)$ non sia semplice. Sia $I\ideal\HH(a,b)$ un ideale bilatero proprio non nullo. Allora $F\tensor_E I$ è un ideale bilatero proprio (non contiene 1) non nullo di $F\tensor\HH(a,b)$, assurdo.
+Siano ora $a,b\in E$ qualunque. Sia $F$ un'estensione finita di $E$ che contiene una radice quadrata di $a$ (ad esempio il campo di spezzamento del polinomio $X^2-a$). Per quanto appena dimostrato, $F\tensor_E\HH(a,b)\iso\Mat(F)$ è un'algebra semplice. Supponiamo per assurdo che $\HH(a,b)$ non sia semplice. Sia $I\ideal\HH(a,b)$ un ideale bilatero proprio non nullo. Allora $F\tensor_E I$ è un ideale bilatero  non nullo di $F\tensor_E\HH(a,b)$; inoltre $\dim_F(F\tensor\HH(a,b))=\dim_E\HH(a,b)<4$, dunque è un ideale proprio, il che è assurdo (essendo $F\tensor_E\HH(a,b)$ un'algebra semplice).
 \end{document}
