@@ -1,0 +1,101 @@
+\documentclass[a4paper]{article}
+
+\usepackage{mystyle}
+\usepackage{subcaption}
+\usepackage{titlesec}
+
+\newcommand{\subsectionbreak}{\clearpage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\today}
+\chead{\textbf{Esercizi IV}}
+\rhead{Filippo Gianni Baroni}
+
+\newcommand*{\mattwo}[4]{\begin{pmatrix}#1&#2\\#3&#4\end{pmatrix}}
+\newcommand*{\del}{\partial}
+
+\begin{document}
+\subsection*{Esercizio 9.3}
+In tutto lo svolgimento dell'esercizio ometteremo gli indici qualora non ci fossero rischi di ambiguità.
+
+\begin{lemma*}
+Sia 
+$$
+\begin{diagram}0\rar&X\rar{\varphi}&Y\rar{\psi}&Z\rar&0\end{diagram}
+$$
+una successione esatta di $A$-moduli, e siano $\map{\rho}{Y}{X}$, $\map{\sigma}{Z}{Y}$ omomorfismi tali che $\rho\sigma=0$, $\rho\varphi=\1$, $\psi\sigma=\1$. Allora $\varphi\rho+\sigma\psi=\1$.
+\end{lemma*}
+\begin{proof}
+Mostriamo innanzitutto che $\ker\psi\cap\ker\rho=0$. Sia $y\in\ker\psi=\im\varphi$. Allora $y=\varphi x$ per un qualche $x\in X$. Se $y$ sta anche in $\ker\rho$, allora $0=\rho y=\rho\varphi x=x$, da cui $y=\varphi x=0$. Mostriamo ora che
+$$
+y-\varphi\rho y-\sigma\psi y\in\ker\psi\cap\ker\rho
+$$
+per ogni $y\in Y$. Da un lato,
+$$
+\psi(y-\varphi\rho y-\sigma\psi y)=\psi y-\psi\varphi\rho y-\psi\sigma\psi y=\psi y-\psi y=0.
+$$
+Dall'altro,
+$$
+\rho(y-\varphi\rho y-\sigma\psi y)=\rho y-\rho\varphi\rho y-\rho\sigma\psi y=\rho y-\rho y=0.
+$$
+Segue che $y-\varphi\rho y-\sigma\psi y=0$ per ogni $y\in Y$.
+\end{proof}
+
+Il triangolo 
+$$
+\begin{diagram} X^*\rar{\varphi}&Y^*\rar{\psi}&Z^*\rar{\chi}&X^*[1]\end{diagram}
+$$
+è distinto se e solo se il triangolo
+$$
+\begin{diagram} Z^*[-1]\rar{-\chi}&X^*\rar{\varphi}&Y^*\rar{\psi}&Z^*\end{diagram}
+$$
+è distinto.
+Mostriamo dunque che esiste un isomorfismo di triangoli
+$$
+\begin{diagram}
+Z^*[-1]\rar{-\chi}&X^*\rar{\varphi}&Y^*\rar{\psi}&Z^*\\
+Z^*[-1]\rar{-\chi}\uar[equal]&X^*\rar{a}\uar[equal]&C(-\chi)\rar{b}\uar{f}&Z^*\uar[equal]
+\end{diagram}
+$$
+dove, ricordiamo, $C(-\chi)^n=X^n\dirsum Z^n$, $ax=(x,0)$, $b(x,z)=z$. Indichiamo con $\del_X,\del_Y,\del_Z,\del_C$ i bordi di $X,Y,Z,C(-\chi)$ (ometteremo i pedici qualora non ci fossero rischi di ambiguità). Abbiamo
+$$
+\del_C=\mattwo{\del_X}{-\chi}{0}{\del_Z}.
+$$
+Definiamo
+\begin{align*}
+f^n:X^n\dirsum Z^n&\longrightarrow Y^n\\
+(x,z)&\longmapsto\varphi x+\sigma z
+\end{align*}
+\begin{itemize}
+\item \textbf{$f$ è un morfismo di complessi.} Siano $x\in X^n,z\in Z^n$. Allora
+\begin{align*}
+f\del(x,z)&=f(\del x-\chi z,\del z)\\
+&=f(\del x+\rho\del\sigma z,\del z)\\
+&=\varphi\del x+\varphi\rho\del\sigma z+\sigma\del z\\
+&=\varphi\del x+(\1-\sigma\psi)\del\sigma z+\sigma\del z\\
+&=\varphi\del x+\del\sigma z-\sigma\del\psi\sigma z+\sigma\del z\\
+&=\varphi\del x+\del\sigma z-\sigma\del z+\sigma\del z\\
+&=\del\varphi x+\del\sigma z\\
+&=\del f(x,z).
+\end{align*}
+\item \textbf{$f$ fa commutare il diagramma.} La verifica è immediata.
+\item \textbf{$f$ è un isomorfismo di complessi.} Definiamo
+\begin{align*}
+g^n:Y^n&\longrightarrow X^n\dirsum Z^n\\
+y&\longmapsto(\rho y,\psi y)
+\end{align*}
+Abbiamo
+$$
+gf(x,z)=g(\varphi x+\sigma z)=(\rho\varphi x+\rho\sigma z,\psi\varphi x+\psi\sigma z)=(x,z)
+$$
+e
+$$
+fg(y)=f(\rho y,\psi y)=\varphi\rho y+\sigma\psi y=(\varphi\rho+\sigma\psi)y=y.
+$$
+Segue che $g$ è un morfismo di complessi ($g\del=g\del fg=gf\del g=\del g$) e pertanto è proprio il morfismo inverso di $f$.
+\end{itemize}
+
+
+\end{document}
