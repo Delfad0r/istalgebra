@@ -17,4 +17,5 @@ deploy:
   - ./esercizi1.pdf
   - ./esercizi2.pdf
   - ./esercizi3.pdf
+  - ./esercizi4.pdf
   skip_cleanup: true

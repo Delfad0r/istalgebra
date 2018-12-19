@@ -15,8 +15,19 @@
 
 \newcommand*{\mattwo}[4]{\begin{pmatrix}#1&#2\\#3&#4\end{pmatrix}}
 \newcommand*{\del}{\partial}
+\DeclareMathOperator{\Kom}{Kom}
 
 \begin{document}
+\subsection{Esercizio 9.2}
+Come visto in classe, la risoluzione iniettiva di un complesso in $\Kom^+$ è unica a meno di isomorfismo unico. Osserviamo che l'identità $\map{\1}{I^*}{I^*}$ e $\map{\varphi}{I^*}{J^*}$ sono risoluzioni iniettive di $I^*$. Dunque esiste un unico isomorfismo che fa commutare il diagramma
+$$
+\begin{diagram}
+I^*\rar{\1}\arrow[dr,"\varphi"]&I^*\dar[dashed]\\
+&J^*
+\end{diagram}
+$$
+Ma l'unico morfismo che fa commutare il diagramma è $\varphi$, dunque $\varphi$ è un isomorfismo (nella categoria omotopica)
+
 \subsection*{Esercizio 9.3}
 In tutto lo svolgimento dell'esercizio ometteremo gli indici qualora non ci fossero rischi di ambiguità.
 
@@ -96,6 +107,118 @@ fg(y)=f(\rho y,\psi y)=\varphi\rho y+\sigma\psi y=(\varphi\rho+\sigma\psi)y=y.
 $$
 Segue che $g$ è un morfismo di complessi ($g\del=g\del fg=gf\del g=\del g$) e pertanto è proprio il morfismo inverso di $f$.
 \end{itemize}
+
+\subsection*{Esercizio 9.5}
+\begin{enumerate}[(1)]
+\item Consideriamo la risoluzione proiettiva di $A/(f)$
+$$
+\begin{diagram}
+\ldots\rar&0\rar&A\rar{\varphi}&A\rar&A/(f)\rar&0
+\end{diagram}
+$$
+dove $\varphi$ è la moltiplicazione per $f$.
+
+Per calcolare $\Ext^i(A/(f),M)$ applichiamo il funtore $\Hom(-,M)$, ottenendo il complesso
+$$
+\begin{diagram}
+0\rar&\Hom(A,M)\rar{-\circ\varphi}&\Hom(A,M)\rar&0\rar&\ldots
+\end{diagram}
+$$
+Sappiamo che $\Hom(A,M)$ è canonicamente isomorfo a $M$ mediante l'applicazione
+\begin{align*}
+\Hom(A,M)&\longrightarrow M\\
+g&\longmapsto g(1)
+\end{align*}
+Il complesso diventa dunque
+$$
+\begin{diagram}
+0\rar&M\rar{\tilde\varphi}&M\rar&0\rar&\ldots
+\end{diagram}
+$$
+dove $\tilde\varphi$ è la moltiplicazione per $f$ (modulo $\mm$). Distinguiamo due casi.
+\begin{itemize}
+\item $f(0,0)=0$ (ovvero $f\in\mm$). In tal caso $\tilde\varphi$ è la mappa nulla, dunque calcolando la coomologia del complesso si ottiene
+$$
+\begin{cases}
+\Ext^0(A/(f),M)=M\\
+\Ext^1(A/(f),M)=M\\
+\Ext^i(A/(f),M)=0&\text{per $i\ge 2$}.
+\end{cases}
+$$
+\item $f(0,0)\neq0$ (ovvero $f\not\in\mm$). In tal caso $\tilde\varphi$ è un isomorfismo, dunque calcolando la coomologia del complesso si ottiene
+$$
+\Ext^i(A/(f),M)=0\qquad\text{per ogni $i\ge 0$}.
+$$
+\end{itemize}
+
+Per calcolare $\Tor_i(A/(f),M)$ applichiamo il funtore $-\tensor_AM$ alla risoluzione proiettiva di $A/(f)$, ottenendo il complesso
+$$
+\begin{diagram}
+\ldots\rar&0\rar&A\tensor_AM\rar{\varphi\tensor\1}&A\tensor_AM\rar&0
+\end{diagram}
+$$
+Sappiamo che $A\tensor_AM$ è canonicamente isomorfo a $M$ mediante l'applicazione
+\begin{align*}
+A\tensor_AM&\longrightarrow M\\
+a\tensor m&\longmapsto am
+\end{align*}
+Il complesso diventa dunque
+$$
+\begin{diagram}
+\ldots\rar&0\rar&M\rar{\tilde\varphi}&M\rar&0
+\end{diagram}
+$$
+Si presentano i medesimi due casi di prima.
+\begin{itemize}
+\item $f(0,0)=0$ (ovvero $f\in\mm$). In tal caso $\tilde\varphi$ è la mappa nulla, dunque calcolando l'omologia del complesso si ottiene
+$$
+\begin{cases}
+\Tor_0(A/(f),M)=M\\
+\Tor_1(A/(f),M)=M\\
+\Tor_i(A/(f),M)=0&\text{per $i\ge 2$}.
+\end{cases}
+$$
+\item $f(0,0)\neq0$ (ovvero $f\not\in\mm$). In tal caso $\tilde\varphi$ è un isomorfismo, dunque calcolando l'omologia del complesso si ottiene
+$$
+\Tor_i(A/(f),M)=0\qquad\text{per ogni $i\ge 0$}.
+$$
+\end{itemize}
+\item Consideriamo la risoluzione proiettiva di $M$
+$$
+\begin{diagram}
+\ldots\rar&0\rar&A\rar{\varphi}&A\dirsum A\rar{\psi}&A\rar&M\rar&0
+\end{diagram}
+$$
+dove $\varphi(f)=(yf,xf)$ e $\psi(f,g)=xf-yg$ (si verifica facilmente che è una successione esatta).
+
+Per calcolare $\Ext^i(M,A/(x))$ applichiamo il funtore $\Hom(-,A/(x))$, ottenendo il complesso
+$$
+\begin{diagram}
+0\rar&\Hom(A,A/(x))\rar{-\circ\psi}&\Hom(A\dirsum A,A/(x))\arrow[dl,out=-5,in=175,"-\circ\varphi"]&\phantom{\ldots}\\
+&\Hom(A,A/(x))\rar&0\rar&\ldots
+\end{diagram}
+$$
+Sappiamo che $\Hom(A,A/(x))$ è canonicamente isomorfo a $A/(x)$ mediante l'applicazione
+\begin{align*}
+\Hom(A,A/(x))&\longrightarrow A/(x)\\
+g&\longmapsto g(1)
+\end{align*}
+Il complesso diventa dunque
+$$
+\begin{diagram}
+0\rar&A/(x)\rar{\tilde\psi}&A/(x)\dirsum A/(x)\rar{\tilde\varphi}&A/(x)\rar&0\rar&\ldots
+\end{diagram}
+$$
+dove $\tilde\psi(f)=(xf,-yf)=(0,-yf)$ e $\tilde\varphi(f,g)=yf+xg=yf$. Possiamo ora calcolare la coomologia del complesso.
+\begin{itemize}
+\item $\tilde\psi$ è iniettiva, dunque $\Ext^0(M,A/(x))=0$.
+\item L'immagine di $\tilde\psi$ è $0\dirsum(y)A/(x)$, mentre il nucleo di $\tilde\varphi$ è $0\dirsum A/(x)$, dunque $\Ext^1(M,A/(x))=A/(x,y)=M$.
+\item L'immagine di $\tilde\varphi$ è $(y)A/(x)$, dunque $\Ext^2(M,A/(x))=A/(x,y)=M$.
+\item Per $i\ge 3$ abbiamo $\Ext^i(M,A/(x))=0$.
+\end{itemize}
+
+\end{enumerate}
+
 
 
 \end{document}
